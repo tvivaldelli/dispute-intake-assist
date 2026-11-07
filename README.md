@@ -44,12 +44,13 @@ It reads a card billing-dispute call transcript and classifies the intent (not r
 |---|---|
 | Complete | [12/12](results/holdout/note_scores.md) |
 | Correct next step | [12/12](results/holdout/note_scores.md) |
-| Grounded | [12/12](results/holdout/note_scores.md) |
+| Grounded | [12/12 as scored](results/holdout/note_scores.md); 7/12 read literally (see below) |
 | Usable handoff | [10/12](results/holdout/note_scores.md#usable-handoff-n) (T30, T37) |
 
 - **Tune vs. holdout.** Tune run A ([report](results/tune-A/report.md)) scored the same as the holdout on its 21 clean cases: intent 21 of 21, UN 4 of 4, disputes 16 of 16. Next action and gold fields were 20 of 20 (T38 is scored on intent only). That means no sign of overfitting. It also means both sets are at the ceiling, and they can't show a gap even if one exists.
 - **Few-shot.** 7 tune cases are few-shot examples in the classifier prompt (T03, T14, T17, T22, T29, T39, T40). They're excluded from tune scoring. None is in the holdout.
 - **Blind relabel.** The author blind-relabeled 8 holdout cases (IDs not recorded): 6 matched, and T15 and T37 disagreed. Both disagreements sit on the UN boundary and were resolved in favor of the drafted label, per the spec.
+- **Grounded, read literally.** Five notes state a proposed action, or a decision not to act, as done: T10 ("dispute opened"), T36 and T37 ("Escalated to supervisor"), T08 ("No dispute is opened and no notice link is sent"), and T30 ("No billing dispute opened"). The author scored them as grounded, treating the action as the model's proposal rather than a fact about the call, but that rule wasn't written down before scoring. Read literally, the Grounded rule fails all five, which gives 7 of 12 (note text only; the payload is covered below). Most of the past tense comes from the spec's own wording, which the note prompt copies: the action definition "OPEN_DISPUTE: billing-error dispute opened, notice link sent" and the amount rule "n/a when no billing dispute or fraud claim is opened". "Escalated to supervisor" (T36, T37) has no source in the prompt. The same wording sets notice_link_sent to true on all five OPEN_DISPUTE payloads. The review screen shows a stale-note banner after an override.
 - **The weak spot is retrieval, not classification.** The right decisions often cite the wrong basis. [`findings.md`](results/holdout/findings.md) lists the post-run review: wrong or missing citations on T08, T30 and T37, and notes that describe proposed actions as done.
 
 ## What I'd change next

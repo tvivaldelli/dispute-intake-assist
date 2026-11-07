@@ -1,0 +1,119 @@
+{
+  "id": "T19",
+  "split": "tune",
+  "call_date": "2026-10-15",
+  "intent": "UN",
+  "escalate_reason": null,
+  "classifier_rationale": "The customer says she never signed up for StreamNest Plus, has never had an account, and no one else had access to her card, so this is an unauthorized charge.",
+  "retrieved": [
+    {
+      "id": "POL-01",
+      "score": 39.351,
+      "cited_by_intent": false,
+      "text": "Fraud routing. Any charge the cardholder says they didn't make or authorize goes to the fraud team on the same call. Block the card, reissue, open a fraud claim. Agents do not open these as billing disputes only."
+    },
+    {
+      "id": "REG-13",
+      "score": 14.817,
+      "cited_by_intent": false,
+      "text": "Quality disputes (claims and defenses). A complaint about the quality of goods the cardholder accepted isn't a billing error. It may qualify as a claim against the issuer if the cardholder tried in good faith to resolve it with the merchant, the purchase was over $50, and it happened in the cardholder's state or within 100 miles of their address. The $50 and location limits don't apply when the merchant and issuer are related."
+    },
+    {
+      "id": "REG-01",
+      "score": 14.211,
+      "cited_by_intent": false,
+      "text": "What counts as a billing error. A charge the cardholder didn't authorize; a charge that isn't identified properly; goods or services not accepted or not delivered as agreed; a payment or credit not posted properly; a computational error by the issuer; a request for clarification or documentation about a charge; failure to send a statement to the last known address."
+    }
+  ],
+  "note": "Cardholder reports a $4.99 charge from StreamNest Plus dated 2026-09-20 on the 2026-09-30 statement. Cardholder says they never signed up for or used this service and the card has stayed in their possession. Cardholder has not contacted the merchant. Call date 2026-10-15 is within 60 days of the statement. Next action: FRAUD_TRANSFER per POL-01. Route to the fraud team on this call to block and reissue the card and open a fraud claim. Do not open as a billing-only dispute. Unknown: whether any written notice was sent, and whether the card has been blocked. No second issue raised.",
+  "payload": {
+    "intent": "UN",
+    "escalate_reason": null,
+    "merchant": "StreamNest Plus",
+    "transaction_date": "2026-09-20",
+    "statement_date": "2026-09-30",
+    "amount_posted": 4.99,
+    "amount_disputed": 4.99,
+    "customer_contacted_merchant": false,
+    "within_60_days": true,
+    "notice_link_sent": false,
+    "written_notice_received": "unknown",
+    "temp_credit_eligible": "n/a",
+    "next_action": "FRAUD_TRANSFER",
+    "policy_ids": [
+      "POL-01",
+      "REG-01"
+    ]
+  },
+  "checks": [],
+  "is_fewshot_example": false,
+  "stripped_fields": [
+    "hard_case",
+    "id",
+    "seed_intent",
+    "seed_reason_code"
+  ],
+  "models": {
+    "classify": "anthropic/claude-haiku-5.5",
+    "classify_served": "anthropic/claude-haiku-5.5",
+    "note": "anthropic/claude-haiku-5.5",
+    "note_served": "anthropic/claude-haiku-5.5"
+  },
+  "prompt_versions": {
+    "classify": "classify-v1",
+    "fewshot": "fewshot-v1",
+    "note": "note-v1"
+  },
+  "latency_s": {
+    "classify": 1.531,
+    "note": 5.994
+  },
+  "usage": {
+    "classify": {
+      "prompt_tokens": 6976,
+      "completion_tokens": 75,
+      "total_tokens": 7051,
+      "cost": 0.0007351,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0007351,
+        "upstream_inference_prompt_cost": 0.0006976,
+        "upstream_inference_completions_cost": 3.75e-05
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    },
+    "note": {
+      "prompt_tokens": 2274,
+      "completion_tokens": 1287,
+      "total_tokens": 3561,
+      "cost": 0.0008709,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0008709,
+        "upstream_inference_prompt_cost": 0.0002274,
+        "upstream_inference_completions_cost": 0.0006435
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 873,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

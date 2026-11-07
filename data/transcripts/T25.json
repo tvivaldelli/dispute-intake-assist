@@ -1,0 +1,8 @@
+{
+  "id": "T25",
+  "transcript": "Agent: Thank you for calling Card Services. My name is Jordan. How can I assist you today?\nCustomer: Hi Jordan, I'm calling because there's some money from a store that was supposed to go back on my card, but it never arrived.\nAgent: I can look into that for you. May I have your full name and the billing zip code on the account?\nCustomer: Sure, my name is Aldo Fenwick, and the zip code is 97201.\nAgent: Thank you, Mr. Fenwick. Which store was this with, and what were the details of the purchase?\nCustomer: It was Clearview TV Outlet. I bought a television there, and then the price went down right after.\nAgent: Okay, and what did the store say they would do regarding that price drop?\nCustomer: Well, I went in and talked to them, and they promised a $50 price adjustment on August 26, 2026.\nAgent: And was that $50.00 supposed to be sent back directly to your card?\nCustomer: Yes, exactly. They swiped the card and told me $50.00 would be put right back on it.\nAgent: Have you seen any sign of that money showing up on your account yet?\nCustomer: No, I've checked my last two statements now, and there's nothing there from them.\nAgent: Did Clearview TV Outlet give you any paperwork or an email about this?\nCustomer: Yes, I got an email receipt showing the fifty dollar difference they promised to return.\nAgent: All right. So to make sure I have the full picture, Clearview TV Outlet agreed on August 26, 2026, to return $50.00 to your card for a price adjustment on a television, but two statements have passed and that $50.00 has never appeared.\nCustomer: Yes, that is exactly what happened.",
+  "seed_intent": "CNP",
+  "seed_reason_code": null,
+  "hard_case": null,
+  "call_date": "2026-10-15"
+}

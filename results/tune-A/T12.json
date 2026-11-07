@@ -1,0 +1,119 @@
+{
+  "id": "T12",
+  "split": "tune",
+  "call_date": "2026-10-15",
+  "intent": "WA",
+  "escalate_reason": null,
+  "classifier_rationale": "The customer agreed to a $39 monthly promotion but was charged roughly double on September 24th, which is an overcharge against the agreed amount.",
+  "retrieved": [
+    {
+      "id": "POL-04",
+      "score": 21.536,
+      "cited_by_intent": true,
+      "text": "Written notice link. After a billing-error intake by phone, send the cardholder a link the same day to submit or confirm the dispute electronically. The cardholder's submission is the written notice under REG-03. The call alone is not. POL-04 does not apply to UN, because notice of unauthorized use can be by phone (REG-12)."
+    },
+    {
+      "id": "POL-01",
+      "score": 21.232,
+      "cited_by_intent": false,
+      "text": "Fraud routing. Any charge the cardholder says they didn't make or authorize goes to the fraud team on the same call. Block the card, reissue, open a fraud claim. Agents do not open these as billing disputes only."
+    },
+    {
+      "id": "REG-01",
+      "score": 17.6,
+      "cited_by_intent": false,
+      "text": "What counts as a billing error. A charge the cardholder didn't authorize; a charge that isn't identified properly; goods or services not accepted or not delivered as agreed; a payment or credit not posted properly; a computational error by the issuer; a request for clarification or documentation about a charge; failure to send a statement to the last known address."
+    }
+  ],
+  "note": "Cardholder reports an IronGate Fitness charge posted on 2026-09-24. They joined in person under a $39/month promotion, and the welcome email lists that rate, but the charge was roughly double. They visited the front desk earlier this week and were told a manager would call back. No callback has been received, and the gym did not offer an adjustment. Next action: OPEN_DISPUTE as a billing error (goods or services not as agreed, REG-01). Send the electronic notice link the same day per POL-04. Written notice has not been received. Still unknown: exact amount posted, exact disputed difference, statement date, and whether the 60-day window applies. No second issue raised.",
+  "payload": {
+    "intent": "WA",
+    "escalate_reason": null,
+    "merchant": "IronGate Fitness",
+    "transaction_date": "2026-09-24",
+    "statement_date": "unknown",
+    "amount_posted": "unknown",
+    "amount_disputed": "unknown",
+    "customer_contacted_merchant": true,
+    "within_60_days": "unknown",
+    "notice_link_sent": true,
+    "written_notice_received": "unknown",
+    "temp_credit_eligible": false,
+    "next_action": "OPEN_DISPUTE",
+    "policy_ids": [
+      "REG-01",
+      "POL-04"
+    ]
+  },
+  "checks": [],
+  "is_fewshot_example": false,
+  "stripped_fields": [
+    "hard_case",
+    "id",
+    "seed_intent",
+    "seed_reason_code"
+  ],
+  "models": {
+    "classify": "anthropic/claude-haiku-5.5",
+    "classify_served": "anthropic/claude-haiku-5.5",
+    "note": "anthropic/claude-haiku-5.5",
+    "note_served": "anthropic/claude-haiku-5.5"
+  },
+  "prompt_versions": {
+    "classify": "classify-v1",
+    "fewshot": "fewshot-v1",
+    "note": "note-v1"
+  },
+  "latency_s": {
+    "classify": 2.003,
+    "note": 8.744
+  },
+  "usage": {
+    "classify": {
+      "prompt_tokens": 7167,
+      "completion_tokens": 129,
+      "total_tokens": 7296,
+      "cost": 0.0007812,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0007812,
+        "upstream_inference_prompt_cost": 0.0007167,
+        "upstream_inference_completions_cost": 6.45e-05
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 55,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    },
+    "note": {
+      "prompt_tokens": 2435,
+      "completion_tokens": 1776,
+      "total_tokens": 4211,
+      "cost": 0.0011315,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0011315,
+        "upstream_inference_prompt_cost": 0.0002435,
+        "upstream_inference_completions_cost": 0.000888
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 1359,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

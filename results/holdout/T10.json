@@ -1,0 +1,119 @@
+{
+  "id": "T10",
+  "split": "holdout",
+  "call_date": "2026-10-15",
+  "intent": "WA",
+  "escalate_reason": null,
+  "classifier_rationale": "The customer made one gas purchase for $61.20 and was charged twice, which is a duplicate charge, a wrong amount.",
+  "retrieved": [
+    {
+      "id": "POL-04",
+      "score": 14.703,
+      "cited_by_intent": true,
+      "text": "Written notice link. After a billing-error intake by phone, send the cardholder a link the same day to submit or confirm the dispute electronically. The cardholder's submission is the written notice under REG-03. The call alone is not. POL-04 does not apply to UN, because notice of unauthorized use can be by phone (REG-12)."
+    },
+    {
+      "id": "POL-01",
+      "score": 21.232,
+      "cited_by_intent": false,
+      "text": "Fraud routing. Any charge the cardholder says they didn't make or authorize goes to the fraud team on the same call. Block the card, reissue, open a fraud claim. Agents do not open these as billing disputes only."
+    },
+    {
+      "id": "REG-01",
+      "score": 18.246,
+      "cited_by_intent": false,
+      "text": "What counts as a billing error. A charge the cardholder didn't authorize; a charge that isn't identified properly; goods or services not accepted or not delivered as agreed; a payment or credit not posted properly; a computational error by the issuer; a request for clarification or documentation about a charge; failure to send a statement to the last known address."
+    }
+  ],
+  "note": "Cardholder Ivan Delacroix reports two identical $61.20 charges from QuickFuel 214 on 2026-09-29. The cardholder paid for one fuel purchase at the pump, and the receipt shows one $61.20 purchase. No repeated swipe or insert at the pump, and no store purchase. The cardholder has not contacted the merchant. Intent WA: billing-error dispute opened for the duplicate $61.20. Send the electronic notice link the same day per POL-04 (REG-01 billing error). Temporary credit eligible, since the amount is under $250. Unknown: statement date, whether the charge has posted to a statement, and whether written notice was already sent.",
+  "payload": {
+    "intent": "WA",
+    "escalate_reason": null,
+    "merchant": "QuickFuel 214",
+    "transaction_date": "2026-09-29",
+    "statement_date": "unknown",
+    "amount_posted": 122.4,
+    "amount_disputed": 61.2,
+    "customer_contacted_merchant": false,
+    "within_60_days": "unknown",
+    "notice_link_sent": true,
+    "written_notice_received": "unknown",
+    "temp_credit_eligible": true,
+    "next_action": "OPEN_DISPUTE",
+    "policy_ids": [
+      "POL-04",
+      "REG-01"
+    ]
+  },
+  "checks": [],
+  "is_fewshot_example": false,
+  "stripped_fields": [
+    "hard_case",
+    "id",
+    "seed_intent",
+    "seed_reason_code"
+  ],
+  "models": {
+    "classify": "anthropic/claude-haiku-5.5",
+    "classify_served": "anthropic/claude-haiku-5.5",
+    "note": "anthropic/claude-haiku-5.5",
+    "note_served": "anthropic/claude-haiku-5.5"
+  },
+  "prompt_versions": {
+    "classify": "classify-v1",
+    "fewshot": "fewshot-v1",
+    "note": "note-v1"
+  },
+  "latency_s": {
+    "classify": 1.538,
+    "note": 7.27
+  },
+  "usage": {
+    "classify": {
+      "prompt_tokens": 7034,
+      "completion_tokens": 68,
+      "total_tokens": 7102,
+      "cost": 0.0007374,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0007374,
+        "upstream_inference_prompt_cost": 0.0007034,
+        "upstream_inference_completions_cost": 3.4e-05
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    },
+    "note": {
+      "prompt_tokens": 2302,
+      "completion_tokens": 1565,
+      "total_tokens": 3867,
+      "cost": 0.0010127,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0010127,
+        "upstream_inference_prompt_cost": 0.0002302,
+        "upstream_inference_completions_cost": 0.0007825
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 1139,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

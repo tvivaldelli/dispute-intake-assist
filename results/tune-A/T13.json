@@ -1,0 +1,119 @@
+{
+  "id": "T13",
+  "split": "tune",
+  "call_date": "2026-10-15",
+  "intent": "WA",
+  "escalate_reason": null,
+  "classifier_rationale": "The customer bought one $89 print but was charged $267.00 for three, a posted amount that differs from the agreed purchase, so this is a wrong amount.",
+  "retrieved": [
+    {
+      "id": "POL-04",
+      "score": 17.101,
+      "cited_by_intent": true,
+      "text": "Written notice link. After a billing-error intake by phone, send the cardholder a link the same day to submit or confirm the dispute electronically. The cardholder's submission is the written notice under REG-03. The call alone is not. POL-04 does not apply to UN, because notice of unauthorized use can be by phone (REG-12)."
+    },
+    {
+      "id": "REG-01",
+      "score": 19.391,
+      "cited_by_intent": false,
+      "text": "What counts as a billing error. A charge the cardholder didn't authorize; a charge that isn't identified properly; goods or services not accepted or not delivered as agreed; a payment or credit not posted properly; a computational error by the issuer; a request for clarification or documentation about a charge; failure to send a statement to the last known address."
+    },
+    {
+      "id": "POL-01",
+      "score": 18.835,
+      "cited_by_intent": false,
+      "text": "Fraud routing. Any charge the cardholder says they didn't make or authorize goes to the fraud team on the same call. Block the card, reissue, open a fraud claim. Agents do not open these as billing disputes only."
+    }
+  ],
+  "note": "Cardholder reports a $267.00 charge from Paperloom Studio dated 2026-09-19, posted on the 2026-09-29 statement. Cardholder says they ordered one art print for $89.00 and received one print. The packing slip listed quantity one, but the charge reflects three prints. Cardholder emailed the merchant last week with a photo of the packing slip and has not heard back. Disputed difference: $178.00. Call is 16 days after the statement, within the 60-day window. Intent WA, next action OPEN_DISPUTE: send the written-notice link the same day per POL-04, billing error per REG-01. Temp credit eligible (under $250). Unknown: any merchant response, whether the cardholder has sent written notice to the card issuer, and whether other charges are involved. No second issue raised.",
+  "payload": {
+    "intent": "WA",
+    "escalate_reason": null,
+    "merchant": "Paperloom Studio",
+    "transaction_date": "2026-09-19",
+    "statement_date": "2026-09-29",
+    "amount_posted": 267.0,
+    "amount_disputed": 178.0,
+    "customer_contacted_merchant": true,
+    "within_60_days": true,
+    "notice_link_sent": true,
+    "written_notice_received": "unknown",
+    "temp_credit_eligible": true,
+    "next_action": "OPEN_DISPUTE",
+    "policy_ids": [
+      "POL-04",
+      "REG-01"
+    ]
+  },
+  "checks": [],
+  "is_fewshot_example": false,
+  "stripped_fields": [
+    "hard_case",
+    "id",
+    "seed_intent",
+    "seed_reason_code"
+  ],
+  "models": {
+    "classify": "anthropic/claude-haiku-5.5",
+    "classify_served": "anthropic/claude-haiku-5.5",
+    "note": "anthropic/claude-haiku-5.5",
+    "note_served": "anthropic/claude-haiku-5.5"
+  },
+  "prompt_versions": {
+    "classify": "classify-v1",
+    "fewshot": "fewshot-v1",
+    "note": "note-v1"
+  },
+  "latency_s": {
+    "classify": 1.539,
+    "note": 7.192
+  },
+  "usage": {
+    "classify": {
+      "prompt_tokens": 7110,
+      "completion_tokens": 77,
+      "total_tokens": 7187,
+      "cost": 0.0007495,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0007495,
+        "upstream_inference_prompt_cost": 0.000711,
+        "upstream_inference_completions_cost": 3.85e-05
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    },
+    "note": {
+      "prompt_tokens": 2378,
+      "completion_tokens": 1478,
+      "total_tokens": 3856,
+      "cost": 0.0009768,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0009768,
+        "upstream_inference_prompt_cost": 0.0002378,
+        "upstream_inference_completions_cost": 0.000739
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 1012,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

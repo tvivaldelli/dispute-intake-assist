@@ -1,0 +1,8 @@
+{
+  "id": "T27",
+  "transcript": "Agent: Thank you for calling Card Services. My name is Marcus. How can I help you today?\nCustomer: Hi, I'm calling because I returned something to a store recently, but the money hasn't shown back up on my card yet.\nAgent: I can look into that for you. May I have your full name and the billing zip code on the account?\nCustomer: Sure, my name is Elliot Raskin, and the zip code is 43210.\nAgent: Thank you, Mr. Raskin. Could you tell me the name of the merchant and the amount in question?\nCustomer: It was ByteBarn Computers, and the amount was $1,099.00.\nAgent: Got it. And what date was that original charge made?\nCustomer: That was back on September 26th. It showed up on my October 6th statement.\nAgent: Thank you. Can you tell me a little more about what happened when you went back to the merchant?\nCustomer: Yeah, it was a laptop. I took it back to the store in person, and the cashier took it and handed me a refund slip.\nAgent: When did you bring the item back to the store?\nCustomer: That was seven business days ago.\nAgent: And do you currently have that paperwork from the store with you?\nCustomer: Yes, I'm looking right at the refund slip, but the refund isn't on the account when I check my balance online.\nAgent: So to make sure I have the facts straight, you purchased a laptop at ByteBarn Computers on September 26th for $1,099.00, which was on your October 6th statement, and then you returned it in store seven business days ago and received a slip, but the money hasn't appeared on your card.\nCustomer: Yes, that is correct.",
+  "seed_intent": "CNP",
+  "seed_reason_code": null,
+  "hard_case": null,
+  "call_date": "2026-10-15"
+}

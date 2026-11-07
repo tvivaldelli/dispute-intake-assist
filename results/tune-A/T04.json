@@ -1,0 +1,121 @@
+{
+  "id": "T04",
+  "split": "tune",
+  "call_date": "2026-10-15",
+  "intent": "NR",
+  "escalate_reason": null,
+  "classifier_rationale": "The customer paid for two concert tickets that were never delivered by email or mail, so the service was not received as agreed.",
+  "retrieved": [
+    {
+      "id": "POL-04",
+      "score": 18.2,
+      "cited_by_intent": true,
+      "text": "Written notice link. After a billing-error intake by phone, send the cardholder a link the same day to submit or confirm the dispute electronically. The cardholder's submission is the written notice under REG-03. The call alone is not. POL-04 does not apply to UN, because notice of unauthorized use can be by phone (REG-12)."
+    },
+    {
+      "id": "REG-08",
+      "score": 35.469,
+      "cited_by_intent": false,
+      "text": "Not delivered as agreed. Includes refusing delivery of nonconforming goods, delivery of something different from what was agreed, wrong quantity, late delivery, and delivery to the wrong place. Does not cover the quality of goods or services the cardholder accepted."
+    },
+    {
+      "id": "REG-13",
+      "score": 30.657,
+      "cited_by_intent": false,
+      "text": "Quality disputes (claims and defenses). A complaint about the quality of goods the cardholder accepted isn't a billing error. It may qualify as a claim against the issuer if the cardholder tried in good faith to resolve it with the merchant, the purchase was over $50, and it happened in the cardholder's state or within 100 miles of their address. The $50 and location limits don't apply when the merchant and issuer are related."
+    }
+  ],
+  "note": "Cardholder Owen Taggart reports a non-receipt dispute. On 2026-09-17 he bought two concert tickets from StagePass Tix. He received no electronic pass, no mailed tickets, and no barcodes. He checked spam and other folders and sent two messages via the merchant's website contact form with no reply. The event was 2026-10-10 and he did not attend. Intent NR, next action OPEN_DISPUTE, with the same-day written notice link sent under POL-04. Basis is REG-08 (not delivered as agreed). Still unknown: amount charged and disputed, statement date (so the 60-day window is unconfirmed), and whether written notice was sent to the issuer. No second issue raised.",
+  "payload": {
+    "intent": "NR",
+    "escalate_reason": null,
+    "merchant": "StagePass Tix",
+    "transaction_date": "2026-09-17",
+    "statement_date": "unknown",
+    "amount_posted": "unknown",
+    "amount_disputed": "unknown",
+    "customer_contacted_merchant": true,
+    "within_60_days": "unknown",
+    "notice_link_sent": true,
+    "written_notice_received": "unknown",
+    "temp_credit_eligible": false,
+    "next_action": "OPEN_DISPUTE",
+    "policy_ids": [
+      "POL-04",
+      "REG-08"
+    ]
+  },
+  "checks": [
+    "note uses gendered pronouns: ['he']"
+  ],
+  "is_fewshot_example": false,
+  "stripped_fields": [
+    "hard_case",
+    "id",
+    "seed_intent",
+    "seed_reason_code"
+  ],
+  "models": {
+    "classify": "anthropic/claude-haiku-5.5",
+    "classify_served": "anthropic/claude-haiku-5.5",
+    "note": "anthropic/claude-haiku-5.5",
+    "note_served": "anthropic/claude-haiku-5.5"
+  },
+  "prompt_versions": {
+    "classify": "classify-v1",
+    "fewshot": "fewshot-v1",
+    "note": "note-v1"
+  },
+  "latency_s": {
+    "classify": 1.549,
+    "note": 5.901
+  },
+  "usage": {
+    "classify": {
+      "prompt_tokens": 7117,
+      "completion_tokens": 63,
+      "total_tokens": 7180,
+      "cost": 0.0007432,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0007432,
+        "upstream_inference_prompt_cost": 0.0007117,
+        "upstream_inference_completions_cost": 3.15e-05
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    },
+    "note": {
+      "prompt_tokens": 2430,
+      "completion_tokens": 1170,
+      "total_tokens": 3600,
+      "cost": 0.000828,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.000828,
+        "upstream_inference_prompt_cost": 0.000243,
+        "upstream_inference_completions_cost": 0.000585
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 735,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

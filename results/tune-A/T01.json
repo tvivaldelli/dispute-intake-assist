@@ -1,0 +1,119 @@
+{
+  "id": "T01",
+  "split": "tune",
+  "call_date": "2026-10-15",
+  "intent": "NR",
+  "escalate_reason": null,
+  "classifier_rationale": "The lamp arrived shattered and unusable, so the goods were not received as agreed; a damaged-on-arrival item the customer never accepted is not a quality complaint.",
+  "retrieved": [
+    {
+      "id": "POL-04",
+      "score": 18.491,
+      "cited_by_intent": true,
+      "text": "Written notice link. After a billing-error intake by phone, send the cardholder a link the same day to submit or confirm the dispute electronically. The cardholder's submission is the written notice under REG-03. The call alone is not. POL-04 does not apply to UN, because notice of unauthorized use can be by phone (REG-12)."
+    },
+    {
+      "id": "REG-08",
+      "score": 28.928,
+      "cited_by_intent": false,
+      "text": "Not delivered as agreed. Includes refusing delivery of nonconforming goods, delivery of something different from what was agreed, wrong quantity, late delivery, and delivery to the wrong place. Does not cover the quality of goods or services the cardholder accepted."
+    },
+    {
+      "id": "REG-13",
+      "score": 27.161,
+      "cited_by_intent": false,
+      "text": "Quality disputes (claims and defenses). A complaint about the quality of goods the cardholder accepted isn't a billing error. It may qualify as a claim against the issuer if the cardholder tried in good faith to resolve it with the merchant, the purchase was over $50, and it happened in the cardholder's state or within 100 miles of their address. The $50 and location limits don't apply when the merchant and issuer are related."
+    }
+  ],
+  "note": "Cardholder Dana Whitcombe disputes an $89.00 charge from Larkspur Home Goods, transaction 2026-09-23, on the 2026-10-03 statement. Bought a ceramic table lamp online. It arrived shattered and was never used. Cardholder emailed the merchant with photos on delivery day and has had no reply. Intent NR. Billing-error dispute opened; send the written notice link the same day per POL-04. Written notice to the issuer was not stated, so it is unknown. Unknown: whether the merchant has responded since, and whether a refund was offered. Review before resolving: broken-on-arrival goods may fall under the quality claims path (REG-13) rather than REG-08.",
+  "payload": {
+    "intent": "NR",
+    "escalate_reason": null,
+    "merchant": "Larkspur Home Goods",
+    "transaction_date": "2026-09-23",
+    "statement_date": "2026-10-03",
+    "amount_posted": 89.0,
+    "amount_disputed": 89.0,
+    "customer_contacted_merchant": true,
+    "within_60_days": true,
+    "notice_link_sent": true,
+    "written_notice_received": "unknown",
+    "temp_credit_eligible": true,
+    "next_action": "OPEN_DISPUTE",
+    "policy_ids": [
+      "POL-04",
+      "REG-08"
+    ]
+  },
+  "checks": [],
+  "is_fewshot_example": false,
+  "stripped_fields": [
+    "hard_case",
+    "id",
+    "seed_intent",
+    "seed_reason_code"
+  ],
+  "models": {
+    "classify": "anthropic/claude-haiku-5.5",
+    "classify_served": "anthropic/claude-haiku-5.5",
+    "note": "anthropic/claude-haiku-5.5",
+    "note_served": "anthropic/claude-haiku-5.5"
+  },
+  "prompt_versions": {
+    "classify": "classify-v1",
+    "fewshot": "fewshot-v1",
+    "note": "note-v1"
+  },
+  "latency_s": {
+    "classify": 1.649,
+    "note": 8.423
+  },
+  "usage": {
+    "classify": {
+      "prompt_tokens": 7044,
+      "completion_tokens": 82,
+      "total_tokens": 7126,
+      "cost": 0.0007454,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0007454,
+        "upstream_inference_prompt_cost": 0.0007044,
+        "upstream_inference_completions_cost": 4.1e-05
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    },
+    "note": {
+      "prompt_tokens": 2357,
+      "completion_tokens": 1804,
+      "total_tokens": 4161,
+      "cost": 0.0011377,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0011377,
+        "upstream_inference_prompt_cost": 0.0002357,
+        "upstream_inference_completions_cost": 0.000902
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 1367,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

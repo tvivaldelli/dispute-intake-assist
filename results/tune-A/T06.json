@@ -1,0 +1,119 @@
+{
+  "id": "T06",
+  "split": "tune",
+  "call_date": "2026-10-15",
+  "intent": "NR",
+  "escalate_reason": null,
+  "classifier_rationale": "The customer paid for guaranteed delivery by September 15th and the item arrived a week late, which is delivery not as agreed.",
+  "retrieved": [
+    {
+      "id": "POL-04",
+      "score": 17.192,
+      "cited_by_intent": true,
+      "text": "Written notice link. After a billing-error intake by phone, send the cardholder a link the same day to submit or confirm the dispute electronically. The cardholder's submission is the written notice under REG-03. The call alone is not. POL-04 does not apply to UN, because notice of unauthorized use can be by phone (REG-12)."
+    },
+    {
+      "id": "REG-08",
+      "score": 33.072,
+      "cited_by_intent": false,
+      "text": "Not delivered as agreed. Includes refusing delivery of nonconforming goods, delivery of something different from what was agreed, wrong quantity, late delivery, and delivery to the wrong place. Does not cover the quality of goods or services the cardholder accepted."
+    },
+    {
+      "id": "REG-13",
+      "score": 22.17,
+      "cited_by_intent": false,
+      "text": "Quality disputes (claims and defenses). A complaint about the quality of goods the cardholder accepted isn't a billing error. It may qualify as a claim against the issuer if the cardholder tried in good faith to resolve it with the merchant, the purchase was over $50, and it happened in the cardholder's state or within 100 miles of their address. The $50 and location limits don't apply when the merchant and issuer are related."
+    }
+  ],
+  "note": "The cardholder, Felix Arango, disputes a $64.50 charge from Giftwell Express dated 2026-09-10. They paid for guaranteed delivery by September 15. The item arrived about a week late, after the event. The cardholder emailed the merchant, which declined to help. Intent NR (not delivered as agreed, REG-08). Next action: open a billing-error dispute and send the same-day notice link (POL-04). Temp credit eligible, since the amount is under $250. Unknown: statement date, and whether the cardholder has sent written notice to the issuer. No second issue was raised.",
+  "payload": {
+    "intent": "NR",
+    "escalate_reason": null,
+    "merchant": "Giftwell Express",
+    "transaction_date": "2026-09-10",
+    "statement_date": "unknown",
+    "amount_posted": 64.5,
+    "amount_disputed": 64.5,
+    "customer_contacted_merchant": true,
+    "within_60_days": "unknown",
+    "notice_link_sent": true,
+    "written_notice_received": "unknown",
+    "temp_credit_eligible": true,
+    "next_action": "OPEN_DISPUTE",
+    "policy_ids": [
+      "POL-04",
+      "REG-08"
+    ]
+  },
+  "checks": [],
+  "is_fewshot_example": false,
+  "stripped_fields": [
+    "hard_case",
+    "id",
+    "seed_intent",
+    "seed_reason_code"
+  ],
+  "models": {
+    "classify": "anthropic/claude-haiku-5.5",
+    "classify_served": "anthropic/claude-haiku-5.5",
+    "note": "anthropic/claude-haiku-5.5",
+    "note_served": "anthropic/claude-haiku-5.5"
+  },
+  "prompt_versions": {
+    "classify": "classify-v1",
+    "fewshot": "fewshot-v1",
+    "note": "note-v1"
+  },
+  "latency_s": {
+    "classify": 1.479,
+    "note": 9.539
+  },
+  "usage": {
+    "classify": {
+      "prompt_tokens": 7025,
+      "completion_tokens": 68,
+      "total_tokens": 7093,
+      "cost": 0.0007365,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0007365,
+        "upstream_inference_prompt_cost": 0.0007025,
+        "upstream_inference_completions_cost": 3.4e-05
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    },
+    "note": {
+      "prompt_tokens": 2338,
+      "completion_tokens": 1886,
+      "total_tokens": 4224,
+      "cost": 0.0011768,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0011768,
+        "upstream_inference_prompt_cost": 0.0002338,
+        "upstream_inference_completions_cost": 0.000943
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 1491,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

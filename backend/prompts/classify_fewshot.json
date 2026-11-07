@@ -1,0 +1,19 @@
+{
+  "version": "fewshot-v1",
+  "examples": [
+    {"id": "T03", "intent": "NR", "escalate_reason": null,
+     "rationale": "The bicycle arrived with a cracked frame and the customer refused delivery; refusing nonconforming goods is not delivered as agreed, not a quality complaint."},
+    {"id": "T14", "intent": "WA", "escalate_reason": null,
+     "rationale": "The customer made the purchase and was charged twice for one seat upgrade; a duplicate charge is a wrong amount even though the customer calls it fraud."},
+    {"id": "T17", "intent": "UN", "escalate_reason": null,
+     "rationale": "The customer's brother used the card without permission; a family member without permission is unauthorized."},
+    {"id": "T22", "intent": "CNP", "escalate_reason": null,
+     "rationale": "The customer returned the shoes in store, was told the refund would post, and a statement closed without it."},
+    {"id": "T29", "intent": "NAD", "escalate_reason": null,
+     "rationale": "The descriptor was unfamiliar, but during the call the customer recognized the purchase at a market stall; no billing error."},
+    {"id": "T39", "intent": "ESC", "escalate_reason": "LOW_CONFIDENCE",
+     "rationale": "The mirror was mailed back without tracking, the merchant hasn't confirmed receipt, and no refund was promised; the transcript doesn't settle whether this is a missing credit or not a dispute yet."},
+    {"id": "T40", "intent": "UN", "escalate_reason": null,
+     "rationale": "The caller sounds confused, but a third party had remote access to the caller's computer and the caller says they didn't buy it; unauthorized use takes precedence over CUSTOMER_RISK."}
+  ]
+}

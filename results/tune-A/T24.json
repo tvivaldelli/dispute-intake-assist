@@ -1,0 +1,120 @@
+{
+  "id": "T24",
+  "split": "tune",
+  "call_date": "2026-10-15",
+  "intent": "CNP",
+  "escalate_reason": null,
+  "classifier_rationale": "The customer cancelled within the free-cancellation window, received a cancellation code, and was promised a refund to the card that has not posted.",
+  "retrieved": [
+    {
+      "id": "POL-03",
+      "score": 44.068,
+      "cited_by_intent": true,
+      "text": "Merchant credit wait period. If the merchant's credit or refund is dated less than 10 business days ago, set the expectation and schedule a follow-up. If it's older, or a statement closed without it, open a billing-error dispute."
+    },
+    {
+      "id": "POL-04",
+      "score": 14.057,
+      "cited_by_intent": true,
+      "text": "Written notice link. After a billing-error intake by phone, send the cardholder a link the same day to submit or confirm the dispute electronically. The cardholder's submission is the written notice under REG-03. The call alone is not. POL-04 does not apply to UN, because notice of unauthorized use can be by phone (REG-12)."
+    },
+    {
+      "id": "REG-02",
+      "score": 25.839,
+      "cited_by_intent": false,
+      "text": "The 60-day window. The issuer must receive the notice within 60 days after it sent the first statement showing the error. If a statement wasn't sent, the clock runs from when it should have been. For a missing credit, it runs from the statement where the credit should have appeared."
+    }
+  ],
+  "note": "Cardholder Yusra Haddad disputes a $460.00 Lakeview Suites charge dated 2026-09-08, posted on the 2026-09-18 statement. Cardholder cancelled directly with the hotel within its free-cancellation window about three weeks ago, received cancellation code LV-44910, and was told the refund would post within 3-5 business days. It has not appeared. Cardholder called the hotel front desk a couple of days ago and was put on hold. The expected credit date is not stated. Next action: open a billing-error dispute because the credit is overdue (POL-03), and send the written-notice link the same day (POL-04). Call is within the 60-day window (27 days after statement). Temporary credit not eligible (amount is $250 or more). Unknown: exact credit date and whether written notice was already sent.",
+  "payload": {
+    "intent": "CNP",
+    "escalate_reason": null,
+    "merchant": "Lakeview Suites",
+    "transaction_date": "2026-09-08",
+    "statement_date": "2026-09-18",
+    "amount_posted": 460.0,
+    "amount_disputed": 460.0,
+    "customer_contacted_merchant": true,
+    "within_60_days": true,
+    "notice_link_sent": true,
+    "written_notice_received": "unknown",
+    "temp_credit_eligible": false,
+    "next_action": "OPEN_DISPUTE",
+    "policy_ids": [
+      "POL-03",
+      "POL-04",
+      "REG-02"
+    ]
+  },
+  "checks": [],
+  "is_fewshot_example": false,
+  "stripped_fields": [
+    "hard_case",
+    "id",
+    "seed_intent",
+    "seed_reason_code"
+  ],
+  "models": {
+    "classify": "anthropic/claude-haiku-5.5",
+    "classify_served": "anthropic/claude-haiku-5.5",
+    "note": "anthropic/claude-haiku-5.5",
+    "note_served": "anthropic/claude-haiku-5.5"
+  },
+  "prompt_versions": {
+    "classify": "classify-v1",
+    "fewshot": "fewshot-v1",
+    "note": "note-v1"
+  },
+  "latency_s": {
+    "classify": 1.547,
+    "note": 7.992
+  },
+  "usage": {
+    "classify": {
+      "prompt_tokens": 7130,
+      "completion_tokens": 70,
+      "total_tokens": 7200,
+      "cost": 0.000748,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.000748,
+        "upstream_inference_prompt_cost": 0.000713,
+        "upstream_inference_completions_cost": 3.5e-05
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    },
+    "note": {
+      "prompt_tokens": 2379,
+      "completion_tokens": 1704,
+      "total_tokens": 4083,
+      "cost": 0.0010899,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0010899,
+        "upstream_inference_prompt_cost": 0.0002379,
+        "upstream_inference_completions_cost": 0.000852
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 1229,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

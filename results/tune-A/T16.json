@@ -1,0 +1,119 @@
+{
+  "id": "T16",
+  "split": "tune",
+  "call_date": "2026-10-15",
+  "intent": "UN",
+  "escalate_reason": null,
+  "classifier_rationale": "The customer did not make the $349.99 October 1st charge, has never dealt with the merchant, no one else had access, and the card is still in his possession.",
+  "retrieved": [
+    {
+      "id": "POL-01",
+      "score": 39.351,
+      "cited_by_intent": false,
+      "text": "Fraud routing. Any charge the cardholder says they didn't make or authorize goes to the fraud team on the same call. Block the card, reissue, open a fraud claim. Agents do not open these as billing disputes only."
+    },
+    {
+      "id": "POL-04",
+      "score": 19.899,
+      "cited_by_intent": false,
+      "text": "Written notice link. After a billing-error intake by phone, send the cardholder a link the same day to submit or confirm the dispute electronically. The cardholder's submission is the written notice under REG-03. The call alone is not. POL-04 does not apply to UN, because notice of unauthorized use can be by phone (REG-12)."
+    },
+    {
+      "id": "REG-12",
+      "score": 17.758,
+      "cited_by_intent": false,
+      "text": "Unauthorized use. A charge is unauthorized if someone other than the cardholder made it without actual, implied, or apparent authority, and the cardholder got no benefit from it. State law decides authority. Cardholder liability is capped at the lesser of $50 or the charges made before they notified the issuer. Notice of unauthorized use can be by phone or in writing."
+    }
+  ],
+  "note": "Cardholder reports a $349.99 charge dated 2026-10-01 from QPX*NOVALINE 8842, seen while reviewing online transactions. Cardholder says they have never heard of or shopped with this merchant, have no subscription at this amount, and no one else has access to the card or account. Cardholder confirmed the physical card is in their possession. Per POL-01, this is routed to the fraud team as UN: block the card, reissue, and open a fraud claim. Under REG-12, phone notice of unauthorized use is valid, so no written notice link is required. Unknown: statement date, whether the cardholder contacted the merchant, and whether any written notice was already sent. No second issue was raised.",
+  "payload": {
+    "intent": "UN",
+    "escalate_reason": null,
+    "merchant": "QPX*NOVALINE 8842",
+    "transaction_date": "2026-10-01",
+    "statement_date": "unknown",
+    "amount_posted": 349.99,
+    "amount_disputed": 349.99,
+    "customer_contacted_merchant": "unknown",
+    "within_60_days": "unknown",
+    "notice_link_sent": false,
+    "written_notice_received": "unknown",
+    "temp_credit_eligible": "n/a",
+    "next_action": "FRAUD_TRANSFER",
+    "policy_ids": [
+      "POL-01",
+      "REG-12"
+    ]
+  },
+  "checks": [],
+  "is_fewshot_example": false,
+  "stripped_fields": [
+    "hard_case",
+    "id",
+    "seed_intent",
+    "seed_reason_code"
+  ],
+  "models": {
+    "classify": "anthropic/claude-haiku-5.5",
+    "classify_served": "anthropic/claude-haiku-5.5",
+    "note": "anthropic/claude-haiku-5.5",
+    "note_served": "anthropic/claude-haiku-5.5"
+  },
+  "prompt_versions": {
+    "classify": "classify-v1",
+    "fewshot": "fewshot-v1",
+    "note": "note-v1"
+  },
+  "latency_s": {
+    "classify": 1.602,
+    "note": 5.728
+  },
+  "usage": {
+    "classify": {
+      "prompt_tokens": 7041,
+      "completion_tokens": 74,
+      "total_tokens": 7115,
+      "cost": 0.0007411,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0007411,
+        "upstream_inference_prompt_cost": 0.0007041,
+        "upstream_inference_completions_cost": 3.7e-05
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    },
+    "note": {
+      "prompt_tokens": 2322,
+      "completion_tokens": 1158,
+      "total_tokens": 3480,
+      "cost": 0.0008112,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0008112,
+        "upstream_inference_prompt_cost": 0.0002322,
+        "upstream_inference_completions_cost": 0.000579
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 717,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

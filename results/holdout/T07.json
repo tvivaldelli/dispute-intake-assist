@@ -1,0 +1,119 @@
+{
+  "id": "T07",
+  "split": "holdout",
+  "call_date": "2026-10-15",
+  "intent": "NR",
+  "escalate_reason": null,
+  "classifier_rationale": "The customer paid for speakers that were never received, as the carrier's tracking shows misdelivery to another address; this is goods not received as agreed.",
+  "retrieved": [
+    {
+      "id": "POL-04",
+      "score": 17.101,
+      "cited_by_intent": true,
+      "text": "Written notice link. After a billing-error intake by phone, send the cardholder a link the same day to submit or confirm the dispute electronically. The cardholder's submission is the written notice under REG-03. The call alone is not. POL-04 does not apply to UN, because notice of unauthorized use can be by phone (REG-12)."
+    },
+    {
+      "id": "REG-08",
+      "score": 37.415,
+      "cited_by_intent": false,
+      "text": "Not delivered as agreed. Includes refusing delivery of nonconforming goods, delivery of something different from what was agreed, wrong quantity, late delivery, and delivery to the wrong place. Does not cover the quality of goods or services the cardholder accepted."
+    },
+    {
+      "id": "REG-13",
+      "score": 26.514,
+      "cited_by_intent": false,
+      "text": "Quality disputes (claims and defenses). A complaint about the quality of goods the cardholder accepted isn't a billing error. It may qualify as a claim against the issuer if the cardholder tried in good faith to resolve it with the merchant, the purchase was over $50, and it happened in the cardholder's state or within 100 miles of their address. The $50 and location limits don't apply when the merchant and issuer are related."
+    }
+  ],
+  "note": "Cardholder Rosa Quintero reports a Halvorsen Audio transaction on 2026-09-05 for speakers never received. Carrier tracking shows delivery to a different street; the delivery photo shows an Elm Street porch, and the cardholder lives on Birch Avenue. The cardholder contacted the merchant, who declined to help because the carrier marks the package delivered. The carrier said only the merchant can open a misdelivery inquiry. The charge appeared on the 2026-09-15 statement, 30 days before the call. Next action: OPEN_DISPUTE under POL-04 and REG-08; send the notice link the same day. Unknown: posted amount, disputed amount, and whether written notice was already sent. Temp credit is not eligible until the amount is known.",
+  "payload": {
+    "intent": "NR",
+    "escalate_reason": null,
+    "merchant": "Halvorsen Audio",
+    "transaction_date": "2026-09-05",
+    "statement_date": "2026-09-15",
+    "amount_posted": "unknown",
+    "amount_disputed": "unknown",
+    "customer_contacted_merchant": true,
+    "within_60_days": true,
+    "notice_link_sent": true,
+    "written_notice_received": "unknown",
+    "temp_credit_eligible": false,
+    "next_action": "OPEN_DISPUTE",
+    "policy_ids": [
+      "POL-04",
+      "REG-08"
+    ]
+  },
+  "checks": [],
+  "is_fewshot_example": false,
+  "stripped_fields": [
+    "hard_case",
+    "id",
+    "seed_intent",
+    "seed_reason_code"
+  ],
+  "models": {
+    "classify": "anthropic/claude-haiku-5.5",
+    "classify_served": "anthropic/claude-haiku-5.5",
+    "note": "anthropic/claude-haiku-5.5",
+    "note_served": "anthropic/claude-haiku-5.5"
+  },
+  "prompt_versions": {
+    "classify": "classify-v1",
+    "fewshot": "fewshot-v1",
+    "note": "note-v1"
+  },
+  "latency_s": {
+    "classify": 1.799,
+    "note": 7.202
+  },
+  "usage": {
+    "classify": {
+      "prompt_tokens": 7114,
+      "completion_tokens": 73,
+      "total_tokens": 7187,
+      "cost": 0.0007479,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0007479,
+        "upstream_inference_prompt_cost": 0.0007114,
+        "upstream_inference_completions_cost": 3.65e-05
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    },
+    "note": {
+      "prompt_tokens": 2427,
+      "completion_tokens": 1499,
+      "total_tokens": 3926,
+      "cost": 0.0009922,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0009922,
+        "upstream_inference_prompt_cost": 0.0002427,
+        "upstream_inference_completions_cost": 0.0007495
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 1041,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

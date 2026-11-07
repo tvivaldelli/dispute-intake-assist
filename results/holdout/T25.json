@@ -1,0 +1,119 @@
+{
+  "id": "T25",
+  "split": "holdout",
+  "call_date": "2026-10-15",
+  "intent": "CNP",
+  "escalate_reason": null,
+  "classifier_rationale": "The merchant promised a $50 price adjustment credit to the card, confirmed by email, and it has not posted across two statements.",
+  "retrieved": [
+    {
+      "id": "POL-03",
+      "score": 36.833,
+      "cited_by_intent": true,
+      "text": "Merchant credit wait period. If the merchant's credit or refund is dated less than 10 business days ago, set the expectation and schedule a follow-up. If it's older, or a statement closed without it, open a billing-error dispute."
+    },
+    {
+      "id": "POL-04",
+      "score": 16.094,
+      "cited_by_intent": true,
+      "text": "Written notice link. After a billing-error intake by phone, send the cardholder a link the same day to submit or confirm the dispute electronically. The cardholder's submission is the written notice under REG-03. The call alone is not. POL-04 does not apply to UN, because notice of unauthorized use can be by phone (REG-12)."
+    },
+    {
+      "id": "REG-13",
+      "score": 19.035,
+      "cited_by_intent": false,
+      "text": "Quality disputes (claims and defenses). A complaint about the quality of goods the cardholder accepted isn't a billing error. It may qualify as a claim against the issuer if the cardholder tried in good faith to resolve it with the merchant, the purchase was over $50, and it happened in the cardholder's state or within 100 miles of their address. The $50 and location limits don't apply when the merchant and issuer are related."
+    }
+  ],
+  "note": "Cardholder Aldo Fenwick reports that Clearview TV Outlet promised a $50.00 price adjustment on a television, to be credited back to the card, dated August 26, 2026. The credit has not appeared on the last two statements the cardholder checked. The cardholder contacted the merchant in person and has an emailed receipt showing the $50.00 difference. Next action: open a billing-error dispute for $50.00 under POL-03, since the credit is older than 10 business days and statements closed without it. Send the electronic notice link the same day under POL-04. Temp credit is eligible (under $250). Unknown: transaction date, statement dates, original amount posted, whether the 60-day window applies, and whether the cardholder has sent written notice.",
+  "payload": {
+    "intent": "CNP",
+    "escalate_reason": null,
+    "merchant": "Clearview TV Outlet",
+    "transaction_date": "unknown",
+    "statement_date": "unknown",
+    "amount_posted": "unknown",
+    "amount_disputed": 50,
+    "customer_contacted_merchant": true,
+    "within_60_days": "unknown",
+    "notice_link_sent": true,
+    "written_notice_received": "unknown",
+    "temp_credit_eligible": true,
+    "next_action": "OPEN_DISPUTE",
+    "policy_ids": [
+      "POL-03",
+      "POL-04"
+    ]
+  },
+  "checks": [],
+  "is_fewshot_example": false,
+  "stripped_fields": [
+    "hard_case",
+    "id",
+    "seed_intent",
+    "seed_reason_code"
+  ],
+  "models": {
+    "classify": "anthropic/claude-haiku-5.5",
+    "classify_served": "anthropic/claude-haiku-5.5",
+    "note": "anthropic/claude-haiku-5.5",
+    "note_served": "anthropic/claude-haiku-5.5"
+  },
+  "prompt_versions": {
+    "classify": "classify-v1",
+    "fewshot": "fewshot-v1",
+    "note": "note-v1"
+  },
+  "latency_s": {
+    "classify": 1.587,
+    "note": 8.209
+  },
+  "usage": {
+    "classify": {
+      "prompt_tokens": 6971,
+      "completion_tokens": 68,
+      "total_tokens": 7039,
+      "cost": 0.0007311,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0007311,
+        "upstream_inference_prompt_cost": 0.0006971,
+        "upstream_inference_completions_cost": 3.4e-05
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    },
+    "note": {
+      "prompt_tokens": 2272,
+      "completion_tokens": 1722,
+      "total_tokens": 3994,
+      "cost": 0.0010882,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0010882,
+        "upstream_inference_prompt_cost": 0.0002272,
+        "upstream_inference_completions_cost": 0.000861
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 1280,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

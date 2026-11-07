@@ -1,0 +1,118 @@
+{
+  "id": "T32",
+  "split": "tune",
+  "call_date": "2026-10-15",
+  "intent": "NAD",
+  "escalate_reason": null,
+  "classifier_rationale": "The customer recognizes and accepts the $214.60 charge and only needs a copy of the receipt, with no billing error claimed.",
+  "retrieved": [
+    {
+      "id": "REG-13",
+      "score": 32.735,
+      "cited_by_intent": true,
+      "text": "Quality disputes (claims and defenses). A complaint about the quality of goods the cardholder accepted isn't a billing error. It may qualify as a claim against the issuer if the cardholder tried in good faith to resolve it with the merchant, the purchase was over $50, and it happened in the cardholder's state or within 100 miles of their address. The $50 and location limits don't apply when the merchant and issuer are related."
+    },
+    {
+      "id": "REG-01",
+      "score": 23.07,
+      "cited_by_intent": false,
+      "text": "What counts as a billing error. A charge the cardholder didn't authorize; a charge that isn't identified properly; goods or services not accepted or not delivered as agreed; a payment or credit not posted properly; a computational error by the issuer; a request for clarification or documentation about a charge; failure to send a statement to the last known address."
+    },
+    {
+      "id": "POL-01",
+      "score": 18.68,
+      "cited_by_intent": false,
+      "text": "Fraud routing. Any charge the cardholder says they didn't make or authorize goes to the fraud team on the same call. Block the card, reissue, open a fraud claim. Agents do not open these as billing disputes only."
+    }
+  ],
+  "note": "Cardholder Lorraine Vick is calling about a $214.60 charge from Summit Office Supply dated 2026-09-25, which posted on the 2026-10-05 statement. Cardholder states the charge is correct and there is no problem with the goods. The paper receipt was misplaced, and the employer needs proof for an expense report. Cardholder called the store a couple of times with no answer. Agent confirmed the charge and that the cardholder wants a receipt copy. No dispute opened. Next action: RESOLVE_ON_CALL, provide documentation (REG-01). Unknown: whether a receipt copy is on file, and whether a written notice was sent. Statement is 10 days old, within the 60-day window.",
+  "payload": {
+    "intent": "NAD",
+    "escalate_reason": null,
+    "merchant": "Summit Office Supply",
+    "transaction_date": "2026-09-25",
+    "statement_date": "2026-10-05",
+    "amount_posted": 214.6,
+    "amount_disputed": "n/a",
+    "customer_contacted_merchant": true,
+    "within_60_days": true,
+    "notice_link_sent": false,
+    "written_notice_received": "unknown",
+    "temp_credit_eligible": "n/a",
+    "next_action": "RESOLVE_ON_CALL",
+    "policy_ids": [
+      "REG-01"
+    ]
+  },
+  "checks": [],
+  "is_fewshot_example": false,
+  "stripped_fields": [
+    "hard_case",
+    "id",
+    "seed_intent",
+    "seed_reason_code"
+  ],
+  "models": {
+    "classify": "anthropic/claude-haiku-5.5",
+    "classify_served": "anthropic/claude-haiku-5.5",
+    "note": "anthropic/claude-haiku-5.5",
+    "note_served": "anthropic/claude-haiku-5.5"
+  },
+  "prompt_versions": {
+    "classify": "classify-v1",
+    "fewshot": "fewshot-v1",
+    "note": "note-v1"
+  },
+  "latency_s": {
+    "classify": 1.521,
+    "note": 5.502
+  },
+  "usage": {
+    "classify": {
+      "prompt_tokens": 6951,
+      "completion_tokens": 70,
+      "total_tokens": 7021,
+      "cost": 0.0007301,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0007301,
+        "upstream_inference_prompt_cost": 0.0006951,
+        "upstream_inference_completions_cost": 3.5e-05
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    },
+    "note": {
+      "prompt_tokens": 2250,
+      "completion_tokens": 1167,
+      "total_tokens": 3417,
+      "cost": 0.0008085,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0008085,
+        "upstream_inference_prompt_cost": 0.000225,
+        "upstream_inference_completions_cost": 0.0005835
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 731,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "id": "T32",
+  "transcript": "Agent: Thank you for calling Card Member Services. My name is Julian. How can I help you today?\nCustomer: Hi Julian, my name is Lorraine Vick. I'm calling about an item on my recent statement and I need a bit of help with paperwork.\nAgent: Hello Ms. Vick. I would be happy to check into that for you. For verification, could you please confirm your billing zip code and the last four digits of your card?\nCustomer: Sure, my zip code is 97201 and the last four numbers are 4419.\nAgent: Thank you. I have your account pulled up. Which transaction were you looking at?\nCustomer: It's from Summit Office Supply on September 25th. The amount was $214.60.\nAgent: I see that charge here for $214.60 from September 25th. What happened with this purchase?\nCustomer: Well, there's actually nothing wrong with the charge itself. I bought some supplies for work, but I misplaced the paper slip and my employer needs proof for an expense report.\nAgent: Have you tried contacting Summit Office Supply directly to request another copy?\nCustomer: I called the store a couple of times, but nobody answered, so I wanted to see if you have a copy of the receipt on file.\nAgent: Did that purchase appear on your most recent statement?\nCustomer: Yes, it came through on my statement from October 5th, 2026, which was ten days ago.\nAgent: Let me make sure I have all the details noted. The $214.60 charge from Summit Office Supply on September 25th is recognized, and you are requesting a copy of the receipt to submit for an expense report.\nCustomer: Yes, that is exactly what I need.",
+  "seed_intent": "NAD",
+  "seed_reason_code": null,
+  "hard_case": null,
+  "call_date": "2026-10-15"
+}

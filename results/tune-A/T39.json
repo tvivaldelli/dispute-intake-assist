@@ -1,0 +1,119 @@
+{
+  "id": "T39",
+  "split": "tune",
+  "call_date": "2026-10-15",
+  "intent": "ESC",
+  "escalate_reason": "LOW_CONFIDENCE",
+  "classifier_rationale": "The mirror was mailed back without tracking, the merchant hasn't confirmed receipt, and no refund was promised; the transcript doesn't settle whether this is a missing credit or not a dispute yet.",
+  "retrieved": [
+    {
+      "id": "REG-01",
+      "score": 21.91,
+      "cited_by_intent": false,
+      "text": "What counts as a billing error. A charge the cardholder didn't authorize; a charge that isn't identified properly; goods or services not accepted or not delivered as agreed; a payment or credit not posted properly; a computational error by the issuer; a request for clarification or documentation about a charge; failure to send a statement to the last known address."
+    },
+    {
+      "id": "POL-01",
+      "score": 18.794,
+      "cited_by_intent": false,
+      "text": "Fraud routing. Any charge the cardholder says they didn't make or authorize goes to the fraud team on the same call. Block the card, reissue, open a fraud claim. Agents do not open these as billing disputes only."
+    },
+    {
+      "id": "REG-13",
+      "score": 16.356,
+      "cited_by_intent": false,
+      "text": "Quality disputes (claims and defenses). A complaint about the quality of goods the cardholder accepted isn't a billing error. It may qualify as a claim against the issuer if the cardholder tried in good faith to resolve it with the merchant, the purchase was over $50, and it happened in the cardholder's state or within 100 miles of their address. The $50 and location limits don't apply when the merchant and issuer are related."
+    }
+  ],
+  "note": "Cardholder Sabrina Kowalczyk reports a $310.00 charge from Lumen & Loft Decor on 2026-09-07 for a wall mirror that did not fit. The cardholder says they mailed it back in mid-September with no tracking number. The cardholder sent a general contact-form message to the merchant and has had no direct reply. No one confirmed receipt of the return or a refund, though the cardholder isn't sure whether anyone promised one. No dispute was opened. Unknown: statement date, whether the return arrived, refund status, and any written notice to the issuer. Escalated to supervisor (LOW_CONFIDENCE) to decide between the billing-error path (REG-01) and the quality-claim path (REG-13), which depends on the good-faith merchant attempt and the $50 and location limits.",
+  "payload": {
+    "intent": "ESC",
+    "escalate_reason": "LOW_CONFIDENCE",
+    "merchant": "Lumen & Loft Decor",
+    "transaction_date": "2026-09-07",
+    "statement_date": "unknown",
+    "amount_posted": 310.0,
+    "amount_disputed": "n/a",
+    "customer_contacted_merchant": true,
+    "within_60_days": "unknown",
+    "notice_link_sent": false,
+    "written_notice_received": "unknown",
+    "temp_credit_eligible": "n/a",
+    "next_action": "SUPERVISOR",
+    "policy_ids": [
+      "REG-01",
+      "REG-13"
+    ]
+  },
+  "checks": [],
+  "is_fewshot_example": true,
+  "stripped_fields": [
+    "hard_case",
+    "id",
+    "seed_intent",
+    "seed_reason_code"
+  ],
+  "models": {
+    "classify": "anthropic/claude-haiku-5.5",
+    "classify_served": "anthropic/claude-haiku-5.5",
+    "note": "anthropic/claude-haiku-5.5",
+    "note_served": "anthropic/claude-haiku-5.5"
+  },
+  "prompt_versions": {
+    "classify": "classify-v1",
+    "fewshot": "fewshot-v1",
+    "note": "note-v1"
+  },
+  "latency_s": {
+    "classify": 2.461,
+    "note": 7.226
+  },
+  "usage": {
+    "classify": {
+      "prompt_tokens": 7169,
+      "completion_tokens": 321,
+      "total_tokens": 7490,
+      "cost": 0.0008774,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0008774,
+        "upstream_inference_prompt_cost": 0.0007169,
+        "upstream_inference_completions_cost": 0.0001605
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 214,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    },
+    "note": {
+      "prompt_tokens": 2482,
+      "completion_tokens": 1566,
+      "total_tokens": 4048,
+      "cost": 0.0010312,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0010312,
+        "upstream_inference_prompt_cost": 0.0002482,
+        "upstream_inference_completions_cost": 0.000783
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 1081,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

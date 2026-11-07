@@ -1,0 +1,119 @@
+{
+  "id": "T02",
+  "split": "tune",
+  "call_date": "2026-10-15",
+  "intent": "NR",
+  "escalate_reason": null,
+  "classifier_rationale": "The customer prepaid $340.00 for furniture assembly that was never performed, so the service was not received as agreed.",
+  "retrieved": [
+    {
+      "id": "POL-04",
+      "score": 17.101,
+      "cited_by_intent": true,
+      "text": "Written notice link. After a billing-error intake by phone, send the cardholder a link the same day to submit or confirm the dispute electronically. The cardholder's submission is the written notice under REG-03. The call alone is not. POL-04 does not apply to UN, because notice of unauthorized use can be by phone (REG-12)."
+    },
+    {
+      "id": "REG-13",
+      "score": 29.559,
+      "cited_by_intent": false,
+      "text": "Quality disputes (claims and defenses). A complaint about the quality of goods the cardholder accepted isn't a billing error. It may qualify as a claim against the issuer if the cardholder tried in good faith to resolve it with the merchant, the purchase was over $50, and it happened in the cardholder's state or within 100 miles of their address. The $50 and location limits don't apply when the merchant and issuer are related."
+    },
+    {
+      "id": "REG-08",
+      "score": 28.928,
+      "cited_by_intent": false,
+      "text": "Not delivered as agreed. Includes refusing delivery of nonconforming goods, delivery of something different from what was agreed, wrong quantity, late delivery, and delivery to the wrong place. Does not cover the quality of goods or services the cardholder accepted."
+    }
+  ],
+  "note": "Cardholder Marcus Ellery reports a $340.00 charge from BrightBench Assembly Co, paid in advance for furniture assembly. The technician never came, and the merchant never contacted the cardholder or rescheduled. The cardholder called the merchant's main number twice, reached voicemail, and got no callback; the last attempt was about 1 to 2 weeks before the call. Agent stated the transaction date as Aug 9; cardholder said early August. Statement date Aug 19, 2026. Call is 57 days after the statement, within the 60-day window. Next action: OPEN_DISPUTE. Notice link to be sent the same day (POL-04). Temp credit not eligible because the amount is $250 or more. Unknown: whether the cardholder has already sent written notice.",
+  "payload": {
+    "intent": "NR",
+    "escalate_reason": null,
+    "merchant": "BrightBench Assembly Co",
+    "transaction_date": "2026-08-09",
+    "statement_date": "2026-08-19",
+    "amount_posted": 340.0,
+    "amount_disputed": 340.0,
+    "customer_contacted_merchant": true,
+    "within_60_days": true,
+    "notice_link_sent": true,
+    "written_notice_received": "unknown",
+    "temp_credit_eligible": false,
+    "next_action": "OPEN_DISPUTE",
+    "policy_ids": [
+      "POL-04",
+      "REG-08"
+    ]
+  },
+  "checks": [],
+  "is_fewshot_example": false,
+  "stripped_fields": [
+    "hard_case",
+    "id",
+    "seed_intent",
+    "seed_reason_code"
+  ],
+  "models": {
+    "classify": "anthropic/claude-haiku-5.5",
+    "classify_served": "anthropic/claude-haiku-5.5",
+    "note": "anthropic/claude-haiku-5.5",
+    "note_served": "anthropic/claude-haiku-5.5"
+  },
+  "prompt_versions": {
+    "classify": "classify-v1",
+    "fewshot": "fewshot-v1",
+    "note": "note-v1"
+  },
+  "latency_s": {
+    "classify": 1.875,
+    "note": 7.772
+  },
+  "usage": {
+    "classify": {
+      "prompt_tokens": 7079,
+      "completion_tokens": 145,
+      "total_tokens": 7224,
+      "cost": 0.0007804,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0007804,
+        "upstream_inference_prompt_cost": 0.0007079,
+        "upstream_inference_completions_cost": 7.25e-05
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 81,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    },
+    "note": {
+      "prompt_tokens": 2392,
+      "completion_tokens": 1593,
+      "total_tokens": 3985,
+      "cost": 0.0010357,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0010357,
+        "upstream_inference_prompt_cost": 0.0002392,
+        "upstream_inference_completions_cost": 0.0007965
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 1131,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

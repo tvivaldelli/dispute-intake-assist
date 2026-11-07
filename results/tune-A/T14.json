@@ -1,0 +1,119 @@
+{
+  "id": "T14",
+  "split": "tune",
+  "call_date": "2026-10-15",
+  "intent": "WA",
+  "escalate_reason": null,
+  "classifier_rationale": "The customer made the purchase and was charged twice for one seat upgrade; a duplicate charge is a wrong amount even though the customer calls it fraud.",
+  "retrieved": [
+    {
+      "id": "POL-04",
+      "score": 25.324,
+      "cited_by_intent": true,
+      "text": "Written notice link. After a billing-error intake by phone, send the cardholder a link the same day to submit or confirm the dispute electronically. The cardholder's submission is the written notice under REG-03. The call alone is not. POL-04 does not apply to UN, because notice of unauthorized use can be by phone (REG-12)."
+    },
+    {
+      "id": "POL-01",
+      "score": 26.675,
+      "cited_by_intent": false,
+      "text": "Fraud routing. Any charge the cardholder says they didn't make or authorize goes to the fraud team on the same call. Block the card, reissue, open a fraud claim. Agents do not open these as billing disputes only."
+    },
+    {
+      "id": "REG-12",
+      "score": 19.011,
+      "cited_by_intent": false,
+      "text": "Unauthorized use. A charge is unauthorized if someone other than the cardholder made it without actual, implied, or apparent authority, and the cardholder got no benefit from it. State law decides authority. Cardholder liability is capped at the lesser of $50 or the charges made before they notified the issuer. Notice of unauthorized use can be by phone or in writing."
+    }
+  ],
+  "note": "Cardholder Rafael Sutter reports two $189.00 charges from Skyward Air on 2026-09-02. The cardholder bought one seat upgrade and received one confirmation receipt for $189.00. The second charge is disputed, and the cardholder calls it fraud. The cardholder says they tried to reach Skyward Air by phone (endless wait) and by message (no answer). Contact was attempted but no resolution was reached. The cardholder says no one else had access to the card. Statement date was not stated, so 60-day window status is unknown (call is 43 days after the transaction). Next action: OPEN_DISPUTE with notice link sent per POL-04. Temporary credit eligible (disputed amount under $250). Because the cardholder calls the second charge fraud, the agent should check POL-01 before finalizing. Unknown: statement date, written notice, merchant response.",
+  "payload": {
+    "intent": "WA",
+    "escalate_reason": null,
+    "merchant": "Skyward Air",
+    "transaction_date": "2026-09-02",
+    "statement_date": "unknown",
+    "amount_posted": 189.0,
+    "amount_disputed": 189.0,
+    "customer_contacted_merchant": true,
+    "within_60_days": "unknown",
+    "notice_link_sent": true,
+    "written_notice_received": "unknown",
+    "temp_credit_eligible": true,
+    "next_action": "OPEN_DISPUTE",
+    "policy_ids": [
+      "POL-04",
+      "POL-01"
+    ]
+  },
+  "checks": [],
+  "is_fewshot_example": true,
+  "stripped_fields": [
+    "hard_case",
+    "id",
+    "seed_intent",
+    "seed_reason_code"
+  ],
+  "models": {
+    "classify": "anthropic/claude-haiku-5.5",
+    "classify_served": "anthropic/claude-haiku-5.5",
+    "note": "anthropic/claude-haiku-5.5",
+    "note_served": "anthropic/claude-haiku-5.5"
+  },
+  "prompt_versions": {
+    "classify": "classify-v1",
+    "fewshot": "fewshot-v1",
+    "note": "note-v1"
+  },
+  "latency_s": {
+    "classify": 2.156,
+    "note": 10.606
+  },
+  "usage": {
+    "classify": {
+      "prompt_tokens": 7189,
+      "completion_tokens": 125,
+      "total_tokens": 7314,
+      "cost": 0.0007814,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0007814,
+        "upstream_inference_prompt_cost": 0.0007189,
+        "upstream_inference_completions_cost": 6.25e-05
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 48,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    },
+    "note": {
+      "prompt_tokens": 2470,
+      "completion_tokens": 2135,
+      "total_tokens": 4605,
+      "cost": 0.0013145,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0013145,
+        "upstream_inference_prompt_cost": 0.000247,
+        "upstream_inference_completions_cost": 0.0010675
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 1649,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

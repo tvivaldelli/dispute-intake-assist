@@ -1,0 +1,119 @@
+{
+  "id": "T23",
+  "split": "tune",
+  "call_date": "2026-10-15",
+  "intent": "CNP",
+  "escalate_reason": null,
+  "classifier_rationale": "The merchant emailed that the return was accepted and a refund issued, but the $79.95 credit has not posted to the card.",
+  "retrieved": [
+    {
+      "id": "POL-03",
+      "score": 44.068,
+      "cited_by_intent": true,
+      "text": "Merchant credit wait period. If the merchant's credit or refund is dated less than 10 business days ago, set the expectation and schedule a follow-up. If it's older, or a statement closed without it, open a billing-error dispute."
+    },
+    {
+      "id": "POL-04",
+      "score": 15.802,
+      "cited_by_intent": true,
+      "text": "Written notice link. After a billing-error intake by phone, send the cardholder a link the same day to submit or confirm the dispute electronically. The cardholder's submission is the written notice under REG-03. The call alone is not. POL-04 does not apply to UN, because notice of unauthorized use can be by phone (REG-12)."
+    },
+    {
+      "id": "REG-01",
+      "score": 23.993,
+      "cited_by_intent": false,
+      "text": "What counts as a billing error. A charge the cardholder didn't authorize; a charge that isn't identified properly; goods or services not accepted or not delivered as agreed; a payment or credit not posted properly; a computational error by the issuer; a request for clarification or documentation about a charge; failure to send a statement to the last known address."
+    }
+  ],
+  "note": "Cardholder reports returning a blender to KitchenCraft Online for a $79.95 charge dated 2026-09-30. The return was mailed about two weeks before the call. About four business days ago the merchant emailed that the return was accepted and a refund issued. Cardholder has not seen a credit in the app. Cardholder contacted the merchant (return and merchant email). The refund is under 10 business days old, so the POL-03 wait applies: set the expectation and schedule a follow-up. No dispute opened and no notice link sent. Unknown: statement date, exact refund date and amount, and return tracking. If the credit has not posted after the wait period, open a billing-error dispute.",
+  "payload": {
+    "intent": "CNP",
+    "escalate_reason": null,
+    "merchant": "KitchenCraft Online",
+    "transaction_date": "2026-09-30",
+    "statement_date": "unknown",
+    "amount_posted": 79.95,
+    "amount_disputed": "n/a",
+    "customer_contacted_merchant": true,
+    "within_60_days": "unknown",
+    "notice_link_sent": false,
+    "written_notice_received": "unknown",
+    "temp_credit_eligible": "n/a",
+    "next_action": "CNP_WAIT",
+    "policy_ids": [
+      "POL-03",
+      "REG-01"
+    ]
+  },
+  "checks": [],
+  "is_fewshot_example": false,
+  "stripped_fields": [
+    "hard_case",
+    "id",
+    "seed_intent",
+    "seed_reason_code"
+  ],
+  "models": {
+    "classify": "anthropic/claude-haiku-5.5",
+    "classify_served": "anthropic/claude-haiku-5.5",
+    "note": "anthropic/claude-haiku-5.5",
+    "note_served": "anthropic/claude-haiku-5.5"
+  },
+  "prompt_versions": {
+    "classify": "classify-v1",
+    "fewshot": "fewshot-v1",
+    "note": "note-v1"
+  },
+  "latency_s": {
+    "classify": 1.574,
+    "note": 8.151
+  },
+  "usage": {
+    "classify": {
+      "prompt_tokens": 7063,
+      "completion_tokens": 67,
+      "total_tokens": 7130,
+      "cost": 0.0007398,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0007398,
+        "upstream_inference_prompt_cost": 0.0007063,
+        "upstream_inference_completions_cost": 3.35e-05
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    },
+    "note": {
+      "prompt_tokens": 2334,
+      "completion_tokens": 1705,
+      "total_tokens": 4039,
+      "cost": 0.0010859,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0010859,
+        "upstream_inference_prompt_cost": 0.0002334,
+        "upstream_inference_completions_cost": 0.0008525
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 1282,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

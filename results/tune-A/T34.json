@@ -1,0 +1,119 @@
+{
+  "id": "T34",
+  "split": "tune",
+  "call_date": "2026-10-15",
+  "intent": "NAD",
+  "escalate_reason": null,
+  "classifier_rationale": "The customer initially questioned the $119.88 charge, but the sign-up confirmation shows they chose the annual plan, so the charge matches what they agreed to and there is no billing error.",
+  "retrieved": [
+    {
+      "id": "REG-13",
+      "score": 29.043,
+      "cited_by_intent": true,
+      "text": "Quality disputes (claims and defenses). A complaint about the quality of goods the cardholder accepted isn't a billing error. It may qualify as a claim against the issuer if the cardholder tried in good faith to resolve it with the merchant, the purchase was over $50, and it happened in the cardholder's state or within 100 miles of their address. The $50 and location limits don't apply when the merchant and issuer are related."
+    },
+    {
+      "id": "POL-01",
+      "score": 24.123,
+      "cited_by_intent": false,
+      "text": "Fraud routing. Any charge the cardholder says they didn't make or authorize goes to the fraud team on the same call. Block the card, reissue, open a fraud claim. Agents do not open these as billing disputes only."
+    },
+    {
+      "id": "REG-01",
+      "score": 23.07,
+      "cited_by_intent": false,
+      "text": "What counts as a billing error. A charge the cardholder didn't authorize; a charge that isn't identified properly; goods or services not accepted or not delivered as agreed; a payment or credit not posted properly; a computational error by the issuer; a request for clarification or documentation about a charge; failure to send a statement to the last known address."
+    }
+  ],
+  "note": "Cardholder questioned a $119.88 StreamNest Plus charge dated 2026-09-22 on the 2026-10-02 statement, believing it was a monthly charge. Cardholder checked the September 22 sign-up welcome email, which reads \"Thank you for choosing the annual membership,\" and confirmed they selected the yearly plan themselves. Next action RESOLVE_ON_CALL: charge explained as the annual plan selected at sign-up. Not a billing error under REG-01. No dispute opened, no fraud claim, no second issue raised. Unknown: whether cardholder contacted StreamNest Plus, and whether any written notice was sent.",
+  "payload": {
+    "intent": "NAD",
+    "escalate_reason": null,
+    "merchant": "StreamNest Plus",
+    "transaction_date": "2026-09-22",
+    "statement_date": "2026-10-02",
+    "amount_posted": 119.88,
+    "amount_disputed": "n/a",
+    "customer_contacted_merchant": "unknown",
+    "within_60_days": true,
+    "notice_link_sent": false,
+    "written_notice_received": "unknown",
+    "temp_credit_eligible": "n/a",
+    "next_action": "RESOLVE_ON_CALL",
+    "policy_ids": [
+      "REG-01",
+      "REG-13"
+    ]
+  },
+  "checks": [],
+  "is_fewshot_example": false,
+  "stripped_fields": [
+    "hard_case",
+    "id",
+    "seed_intent",
+    "seed_reason_code"
+  ],
+  "models": {
+    "classify": "anthropic/claude-haiku-5.5",
+    "classify_served": "anthropic/claude-haiku-5.5",
+    "note": "anthropic/claude-haiku-5.5",
+    "note_served": "anthropic/claude-haiku-5.5"
+  },
+  "prompt_versions": {
+    "classify": "classify-v1",
+    "fewshot": "fewshot-v1",
+    "note": "note-v1"
+  },
+  "latency_s": {
+    "classify": 2.831,
+    "note": 6.66
+  },
+  "usage": {
+    "classify": {
+      "prompt_tokens": 7182,
+      "completion_tokens": 152,
+      "total_tokens": 7334,
+      "cost": 0.0007942,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0007942,
+        "upstream_inference_prompt_cost": 0.0007182,
+        "upstream_inference_completions_cost": 7.6e-05
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 65,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    },
+    "note": {
+      "prompt_tokens": 2481,
+      "completion_tokens": 1305,
+      "total_tokens": 3786,
+      "cost": 0.0009006,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0009006,
+        "upstream_inference_prompt_cost": 0.0002481,
+        "upstream_inference_completions_cost": 0.0006525
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 875,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

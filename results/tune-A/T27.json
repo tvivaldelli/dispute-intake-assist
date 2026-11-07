@@ -1,0 +1,118 @@
+{
+  "id": "T27",
+  "split": "tune",
+  "call_date": "2026-10-15",
+  "intent": "CNP",
+  "escalate_reason": null,
+  "classifier_rationale": "The customer returned a laptop in store, received a refund slip, and the merchant credit has not posted to the card.",
+  "retrieved": [
+    {
+      "id": "POL-03",
+      "score": 44.068,
+      "cited_by_intent": true,
+      "text": "Merchant credit wait period. If the merchant's credit or refund is dated less than 10 business days ago, set the expectation and schedule a follow-up. If it's older, or a statement closed without it, open a billing-error dispute."
+    },
+    {
+      "id": "POL-04",
+      "score": 14.057,
+      "cited_by_intent": true,
+      "text": "Written notice link. After a billing-error intake by phone, send the cardholder a link the same day to submit or confirm the dispute electronically. The cardholder's submission is the written notice under REG-03. The call alone is not. POL-04 does not apply to UN, because notice of unauthorized use can be by phone (REG-12)."
+    },
+    {
+      "id": "REG-07",
+      "score": 19.179,
+      "cited_by_intent": false,
+      "text": "While the dispute is open. The issuer can't collect the disputed amount or related finance charges, can't report them as delinquent, and can't accelerate the debt or restrict the account because the cardholder used these rights. The issuer can still collect the undisputed balance, report the account as \"in dispute,\" and hold the disputed amount against the credit limit."
+    }
+  ],
+  "note": "Cardholder Elliot Raskin reports returning a laptop in person to ByteBarn Computers about seven business days ago. The cashier gave a refund slip, which the cardholder has in hand. The $1,099.00 refund is not showing on the account balance online. The original charge was 2026-09-26 and posted on the 2026-10-06 statement. Cardholder contacted the merchant in person. Next action is CNP_WAIT under POL-03: the refund is less than 10 business days old, so set expectation and schedule follow-up. No dispute opened, so no dispute notice link sent. Unknown: exact refund posting date, and whether any written notice was sent. No second issue raised.",
+  "payload": {
+    "intent": "CNP",
+    "escalate_reason": null,
+    "merchant": "ByteBarn Computers",
+    "transaction_date": "2026-09-26",
+    "statement_date": "2026-10-06",
+    "amount_posted": 1099.0,
+    "amount_disputed": "n/a",
+    "customer_contacted_merchant": true,
+    "within_60_days": true,
+    "notice_link_sent": false,
+    "written_notice_received": "unknown",
+    "temp_credit_eligible": "n/a",
+    "next_action": "CNP_WAIT",
+    "policy_ids": [
+      "POL-03"
+    ]
+  },
+  "checks": [],
+  "is_fewshot_example": false,
+  "stripped_fields": [
+    "hard_case",
+    "id",
+    "seed_intent",
+    "seed_reason_code"
+  ],
+  "models": {
+    "classify": "anthropic/claude-haiku-5.5",
+    "classify_served": "anthropic/claude-haiku-5.5",
+    "note": "anthropic/claude-haiku-5.5",
+    "note_served": "anthropic/claude-haiku-5.5"
+  },
+  "prompt_versions": {
+    "classify": "classify-v1",
+    "fewshot": "fewshot-v1",
+    "note": "note-v1"
+  },
+  "latency_s": {
+    "classify": 1.589,
+    "note": 5.831
+  },
+  "usage": {
+    "classify": {
+      "prompt_tokens": 6942,
+      "completion_tokens": 63,
+      "total_tokens": 7005,
+      "cost": 0.0007257,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0007257,
+        "upstream_inference_prompt_cost": 0.0006942,
+        "upstream_inference_completions_cost": 3.15e-05
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    },
+    "note": {
+      "prompt_tokens": 2217,
+      "completion_tokens": 1299,
+      "total_tokens": 3516,
+      "cost": 0.0008712,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0008712,
+        "upstream_inference_prompt_cost": 0.0002217,
+        "upstream_inference_completions_cost": 0.0006495
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 878,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

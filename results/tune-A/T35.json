@@ -1,0 +1,120 @@
+{
+  "id": "T35",
+  "split": "tune",
+  "call_date": "2026-10-15",
+  "intent": "NAD",
+  "escalate_reason": null,
+  "classifier_rationale": "The customer accepted the paint job, approved it at walk-through, and paid; dissatisfaction with its appearance is a quality complaint, not a billing error.",
+  "retrieved": [
+    {
+      "id": "REG-13",
+      "score": 31.441,
+      "cited_by_intent": true,
+      "text": "Quality disputes (claims and defenses). A complaint about the quality of goods the cardholder accepted isn't a billing error. It may qualify as a claim against the issuer if the cardholder tried in good faith to resolve it with the merchant, the purchase was over $50, and it happened in the cardholder's state or within 100 miles of their address. The $50 and location limits don't apply when the merchant and issuer are related."
+    },
+    {
+      "id": "REG-01",
+      "score": 22.888,
+      "cited_by_intent": false,
+      "text": "What counts as a billing error. A charge the cardholder didn't authorize; a charge that isn't identified properly; goods or services not accepted or not delivered as agreed; a payment or credit not posted properly; a computational error by the issuer; a request for clarification or documentation about a charge; failure to send a statement to the last known address."
+    },
+    {
+      "id": "POL-01",
+      "score": 21.078,
+      "cited_by_intent": false,
+      "text": "Fraud routing. Any charge the cardholder says they didn't make or authorize goes to the fraud team on the same call. Block the card, reissue, open a fraud claim. Agents do not open these as billing disputes only."
+    }
+  ],
+  "note": "Cardholder Rupert Calloway disputes quality of an exterior paint job from Brightcoat Painting, charged $2,400.00 on 2026-09-09 after he accepted the work on site and signed the completion sheet. Since then he reports the tone looks different in other lighting and the sheen is patchy on the sunny side of the garage. He called the merchant last week; the owner declined to redo the work without an extra fee and said the job was closed. No billing error or fraud is claimed. Next action: CLAIMS_DEFENSES under REG-13. Unknown: statement date, merchant location relative to the cardholder's state or 100 miles, and whether written notice was sent. No second issue raised.",
+  "payload": {
+    "intent": "NAD",
+    "escalate_reason": null,
+    "merchant": "Brightcoat Painting",
+    "transaction_date": "2026-09-09",
+    "statement_date": "unknown",
+    "amount_posted": 2400.0,
+    "amount_disputed": "n/a",
+    "customer_contacted_merchant": true,
+    "within_60_days": "unknown",
+    "notice_link_sent": false,
+    "written_notice_received": "unknown",
+    "temp_credit_eligible": "n/a",
+    "next_action": "CLAIMS_DEFENSES",
+    "policy_ids": [
+      "REG-13"
+    ]
+  },
+  "checks": [
+    "note uses gendered pronouns: ['he']"
+  ],
+  "is_fewshot_example": false,
+  "stripped_fields": [
+    "hard_case",
+    "id",
+    "seed_intent",
+    "seed_reason_code"
+  ],
+  "models": {
+    "classify": "anthropic/claude-haiku-5.5",
+    "classify_served": "anthropic/claude-haiku-5.5",
+    "note": "anthropic/claude-haiku-5.5",
+    "note_served": "anthropic/claude-haiku-5.5"
+  },
+  "prompt_versions": {
+    "classify": "classify-v1",
+    "fewshot": "fewshot-v1",
+    "note": "note-v1"
+  },
+  "latency_s": {
+    "classify": 1.607,
+    "note": 5.948
+  },
+  "usage": {
+    "classify": {
+      "prompt_tokens": 7101,
+      "completion_tokens": 79,
+      "total_tokens": 7180,
+      "cost": 0.0007496,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0007496,
+        "upstream_inference_prompt_cost": 0.0007101,
+        "upstream_inference_completions_cost": 3.95e-05
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    },
+    "note": {
+      "prompt_tokens": 2400,
+      "completion_tokens": 1211,
+      "total_tokens": 3611,
+      "cost": 0.0008455,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0008455,
+        "upstream_inference_prompt_cost": 0.00024,
+        "upstream_inference_completions_cost": 0.0006055
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 781,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

@@ -1,0 +1,119 @@
+{
+  "id": "T20",
+  "split": "tune",
+  "call_date": "2026-10-15",
+  "intent": "UN",
+  "escalate_reason": null,
+  "classifier_rationale": "The customer has never heard of Gadgetry Direct, had the card in hand at home, and no one else has access, so he did not make or authorize the $1,875.00 charge.",
+  "retrieved": [
+    {
+      "id": "POL-01",
+      "score": 39.351,
+      "cited_by_intent": false,
+      "text": "Fraud routing. Any charge the cardholder says they didn't make or authorize goes to the fraud team on the same call. Block the card, reissue, open a fraud claim. Agents do not open these as billing disputes only."
+    },
+    {
+      "id": "REG-12",
+      "score": 17.397,
+      "cited_by_intent": false,
+      "text": "Unauthorized use. A charge is unauthorized if someone other than the cardholder made it without actual, implied, or apparent authority, and the cardholder got no benefit from it. State law decides authority. Cardholder liability is capped at the lesser of $50 or the charges made before they notified the issuer. Notice of unauthorized use can be by phone or in writing."
+    },
+    {
+      "id": "REG-01",
+      "score": 14.211,
+      "cited_by_intent": false,
+      "text": "What counts as a billing error. A charge the cardholder didn't authorize; a charge that isn't identified properly; goods or services not accepted or not delivered as agreed; a payment or credit not posted properly; a computational error by the issuer; a request for clarification or documentation about a charge; failure to send a statement to the last known address."
+    }
+  ],
+  "note": "Cardholder Theo Marchetti reported an unrecognized $1,875.00 online charge from Gadgetry Direct, alerted by text on 2026-10-13. Cardholder states they have never dealt with this merchant, the physical card was in their hand at home when the alert arrived, no one else has access to the card or accounts, and the charge has not yet appeared on a statement. Next action: FRAUD_TRANSFER to the fraud team on this call (POL-01), with unauthorized-use framework under REG-12. Unknown: whether cardholder contacted the merchant, statement date, and whether any written notice was sent. No second issue raised.",
+  "payload": {
+    "intent": "UN",
+    "escalate_reason": null,
+    "merchant": "Gadgetry Direct",
+    "transaction_date": "2026-10-13",
+    "statement_date": "unknown",
+    "amount_posted": 1875.0,
+    "amount_disputed": 1875.0,
+    "customer_contacted_merchant": "unknown",
+    "within_60_days": true,
+    "notice_link_sent": false,
+    "written_notice_received": "unknown",
+    "temp_credit_eligible": "n/a",
+    "next_action": "FRAUD_TRANSFER",
+    "policy_ids": [
+      "POL-01",
+      "REG-12"
+    ]
+  },
+  "checks": [],
+  "is_fewshot_example": false,
+  "stripped_fields": [
+    "hard_case",
+    "id",
+    "seed_intent",
+    "seed_reason_code"
+  ],
+  "models": {
+    "classify": "anthropic/claude-haiku-5.5",
+    "classify_served": "anthropic/claude-haiku-5.5",
+    "note": "anthropic/claude-haiku-5.5",
+    "note_served": "anthropic/claude-haiku-5.5"
+  },
+  "prompt_versions": {
+    "classify": "classify-v1",
+    "fewshot": "fewshot-v1",
+    "note": "note-v1"
+  },
+  "latency_s": {
+    "classify": 1.564,
+    "note": 6.018
+  },
+  "usage": {
+    "classify": {
+      "prompt_tokens": 7007,
+      "completion_tokens": 82,
+      "total_tokens": 7089,
+      "cost": 0.0007417,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0007417,
+        "upstream_inference_prompt_cost": 0.0007007,
+        "upstream_inference_completions_cost": 4.1e-05
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    },
+    "note": {
+      "prompt_tokens": 2288,
+      "completion_tokens": 1253,
+      "total_tokens": 3541,
+      "cost": 0.0008553,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0008553,
+        "upstream_inference_prompt_cost": 0.0002288,
+        "upstream_inference_completions_cost": 0.0006265
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 835,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

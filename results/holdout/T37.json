@@ -1,0 +1,121 @@
+{
+  "id": "T37",
+  "split": "holdout",
+  "call_date": "2026-10-15",
+  "intent": "ESC",
+  "escalate_reason": "SOP_GAP",
+  "classifier_rationale": "This is a business card account, which policy does not cover, so it goes to a human even though the caller describes an unauthorized charge.",
+  "retrieved": [
+    {
+      "id": "POL-01",
+      "score": 20.803,
+      "cited_by_intent": false,
+      "text": "Fraud routing. Any charge the cardholder says they didn't make or authorize goes to the fraud team on the same call. Block the card, reissue, open a fraud claim. Agents do not open these as billing disputes only."
+    },
+    {
+      "id": "REG-01",
+      "score": 13.822,
+      "cited_by_intent": false,
+      "text": "What counts as a billing error. A charge the cardholder didn't authorize; a charge that isn't identified properly; goods or services not accepted or not delivered as agreed; a payment or credit not posted properly; a computational error by the issuer; a request for clarification or documentation about a charge; failure to send a statement to the last known address."
+    },
+    {
+      "id": "REG-13",
+      "score": 13.283,
+      "cited_by_intent": false,
+      "text": "Quality disputes (claims and defenses). A complaint about the quality of goods the cardholder accepted isn't a billing error. It may qualify as a claim against the issuer if the cardholder tried in good faith to resolve it with the merchant, the purchase was over $50, and it happened in the cardholder's state or within 100 miles of their address. The $50 and location limits don't apply when the merchant and issuer are related."
+    }
+  ],
+  "note": "Cardholder Monica Faraday, office manager at Faraday & Pell LLC, disputes a $2,950.00 charge from Corvid Office Systems, transaction 2026-09-16, on the 2026-09-26 statement. She says no one at the company ordered or received office equipment. Only two people have account access, and neither approved an order. She called Corvid, which said an order was placed for a printing setup. She denied it and has not received the promised invoice. The card is in her possession. Escalated to supervisor, reason SOP_GAP. POL-01 requires unauthorized charges to route to the fraud team on the same call, so the supervisor should confirm that path. Unknown: who placed the order at Corvid, whether an invoice exists, and whether written notice was sent.",
+  "payload": {
+    "intent": "ESC",
+    "escalate_reason": "SOP_GAP",
+    "merchant": "Corvid Office Systems",
+    "transaction_date": "2026-09-16",
+    "statement_date": "2026-09-26",
+    "amount_posted": 2950.0,
+    "amount_disputed": "n/a",
+    "customer_contacted_merchant": true,
+    "within_60_days": true,
+    "notice_link_sent": false,
+    "written_notice_received": "unknown",
+    "temp_credit_eligible": "n/a",
+    "next_action": "SUPERVISOR",
+    "policy_ids": [
+      "POL-01",
+      "REG-01"
+    ]
+  },
+  "checks": [
+    "note uses gendered pronouns: ['her', 'she']"
+  ],
+  "is_fewshot_example": false,
+  "stripped_fields": [
+    "hard_case",
+    "id",
+    "seed_intent",
+    "seed_reason_code"
+  ],
+  "models": {
+    "classify": "anthropic/claude-haiku-5.5",
+    "classify_served": "anthropic/claude-haiku-5.5",
+    "note": "anthropic/claude-haiku-5.5",
+    "note_served": "anthropic/claude-haiku-5.5"
+  },
+  "prompt_versions": {
+    "classify": "classify-v1",
+    "fewshot": "fewshot-v1",
+    "note": "note-v1"
+  },
+  "latency_s": {
+    "classify": 1.881,
+    "note": 7.158
+  },
+  "usage": {
+    "classify": {
+      "prompt_tokens": 7201,
+      "completion_tokens": 150,
+      "total_tokens": 7351,
+      "cost": 0.0007951,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0007951,
+        "upstream_inference_prompt_cost": 0.0007201,
+        "upstream_inference_completions_cost": 7.5e-05
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 76,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    },
+    "note": {
+      "prompt_tokens": 2509,
+      "completion_tokens": 1416,
+      "total_tokens": 3925,
+      "cost": 0.0009589,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0009589,
+        "upstream_inference_prompt_cost": 0.0002509,
+        "upstream_inference_completions_cost": 0.000708
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 956,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

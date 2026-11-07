@@ -1,0 +1,120 @@
+{
+  "id": "T28",
+  "split": "tune",
+  "call_date": "2026-10-15",
+  "intent": "CNP",
+  "escalate_reason": null,
+  "classifier_rationale": "The airline cancelled the flight and promised a refund to the card, which hasn't posted; no alternative credit was accepted.",
+  "retrieved": [
+    {
+      "id": "POL-03",
+      "score": 39.878,
+      "cited_by_intent": true,
+      "text": "Merchant credit wait period. If the merchant's credit or refund is dated less than 10 business days ago, set the expectation and schedule a follow-up. If it's older, or a statement closed without it, open a billing-error dispute."
+    },
+    {
+      "id": "POL-04",
+      "score": 15.155,
+      "cited_by_intent": true,
+      "text": "Written notice link. After a billing-error intake by phone, send the cardholder a link the same day to submit or confirm the dispute electronically. The cardholder's submission is the written notice under REG-03. The call alone is not. POL-04 does not apply to UN, because notice of unauthorized use can be by phone (REG-12)."
+    },
+    {
+      "id": "REG-07",
+      "score": 22.675,
+      "cited_by_intent": false,
+      "text": "While the dispute is open. The issuer can't collect the disputed amount or related finance charges, can't report them as delinquent, and can't accelerate the debt or restrict the account because the cardholder used these rights. The issuer can still collect the undisputed balance, report the account as \"in dispute,\" and hold the disputed amount against the credit limit."
+    }
+  ],
+  "note": "Cardholder reports a $388.40 charge from Skyward Air dated 2026-08-22 for a flight the airline cancelled. The airline emailed that the refund would go to the original card within a couple of weeks. Cardholder says that was about six weeks ago and no credit has posted. Cardholder did not accept any vouchers, credits, or rebooking. About a week ago, cardholder called the merchant's customer line and could not reach an agent, so customer_contacted_merchant is true. No merchant credit is dated, and the refund is older than the POL-03 wait period, so open a billing-error dispute and send the notice link the same day (POL-03, POL-04). While the dispute is open, the disputed amount cannot be collected or reported delinquent (REG-07). Unknown: statement date, which is needed to confirm the 60-day window, and whether written notice has already been sent.",
+  "payload": {
+    "intent": "CNP",
+    "escalate_reason": null,
+    "merchant": "Skyward Air",
+    "transaction_date": "2026-08-22",
+    "statement_date": "unknown",
+    "amount_posted": 388.4,
+    "amount_disputed": 388.4,
+    "customer_contacted_merchant": true,
+    "within_60_days": "unknown",
+    "notice_link_sent": true,
+    "written_notice_received": "unknown",
+    "temp_credit_eligible": false,
+    "next_action": "OPEN_DISPUTE",
+    "policy_ids": [
+      "POL-03",
+      "POL-04",
+      "REG-07"
+    ]
+  },
+  "checks": [],
+  "is_fewshot_example": false,
+  "stripped_fields": [
+    "hard_case",
+    "id",
+    "seed_intent",
+    "seed_reason_code"
+  ],
+  "models": {
+    "classify": "anthropic/claude-haiku-5.5",
+    "classify_served": "anthropic/claude-haiku-5.5",
+    "note": "anthropic/claude-haiku-5.5",
+    "note_served": "anthropic/claude-haiku-5.5"
+  },
+  "prompt_versions": {
+    "classify": "classify-v1",
+    "fewshot": "fewshot-v1",
+    "note": "note-v1"
+  },
+  "latency_s": {
+    "classify": 1.483,
+    "note": 8.331
+  },
+  "usage": {
+    "classify": {
+      "prompt_tokens": 7041,
+      "completion_tokens": 68,
+      "total_tokens": 7109,
+      "cost": 0.0007381,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0007381,
+        "upstream_inference_prompt_cost": 0.0007041,
+        "upstream_inference_completions_cost": 3.4e-05
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    },
+    "note": {
+      "prompt_tokens": 2316,
+      "completion_tokens": 1825,
+      "total_tokens": 4141,
+      "cost": 0.0011441,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0011441,
+        "upstream_inference_prompt_cost": 0.0002316,
+        "upstream_inference_completions_cost": 0.0009125
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 1335,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

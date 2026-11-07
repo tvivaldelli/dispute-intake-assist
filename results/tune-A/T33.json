@@ -1,0 +1,119 @@
+{
+  "id": "T33",
+  "split": "tune",
+  "call_date": "2026-10-15",
+  "intent": "NAD",
+  "escalate_reason": null,
+  "classifier_rationale": "The customer ate the meal and is unhappy with food quality, which is a quality complaint about accepted services rather than a billing error, and they never raised it with the merchant.",
+  "retrieved": [
+    {
+      "id": "REG-13",
+      "score": 34.486,
+      "cited_by_intent": true,
+      "text": "Quality disputes (claims and defenses). A complaint about the quality of goods the cardholder accepted isn't a billing error. It may qualify as a claim against the issuer if the cardholder tried in good faith to resolve it with the merchant, the purchase was over $50, and it happened in the cardholder's state or within 100 miles of their address. The $50 and location limits don't apply when the merchant and issuer are related."
+    },
+    {
+      "id": "POL-01",
+      "score": 21.078,
+      "cited_by_intent": false,
+      "text": "Fraud routing. Any charge the cardholder says they didn't make or authorize goes to the fraud team on the same call. Block the card, reissue, open a fraud claim. Agents do not open these as billing disputes only."
+    },
+    {
+      "id": "REG-01",
+      "score": 18.234,
+      "cited_by_intent": false,
+      "text": "What counts as a billing error. A charge the cardholder didn't authorize; a charge that isn't identified properly; goods or services not accepted or not delivered as agreed; a payment or credit not posted properly; a computational error by the issuer; a request for clarification or documentation about a charge; failure to send a statement to the last known address."
+    }
+  ],
+  "note": "Cardholder Dmitri Sorensen disputes a $76.40 charge from The Gilded Fork dated 2026-09-30, saying the food quality was poor (meat dry and cold). During the meal, the cardholder told the server, who brushed it off. The cardholder ate most of the meal, then paid and signed. No manager or restaurant contact since. No billing dispute or fraud claim opened. Next action: CLAIMS_DEFENSES under REG-13. The purchase is over $50. Not a billing error under REG-01. Unknown: whether the merchant is in the cardholder's state or within 100 miles of their address, the statement date, and whether any written notice was sent.",
+  "payload": {
+    "intent": "NAD",
+    "escalate_reason": null,
+    "merchant": "The Gilded Fork",
+    "transaction_date": "2026-09-30",
+    "statement_date": "unknown",
+    "amount_posted": 76.4,
+    "amount_disputed": "n/a",
+    "customer_contacted_merchant": true,
+    "within_60_days": "unknown",
+    "notice_link_sent": false,
+    "written_notice_received": "unknown",
+    "temp_credit_eligible": "n/a",
+    "next_action": "CLAIMS_DEFENSES",
+    "policy_ids": [
+      "REG-13",
+      "REG-01"
+    ]
+  },
+  "checks": [],
+  "is_fewshot_example": false,
+  "stripped_fields": [
+    "hard_case",
+    "id",
+    "seed_intent",
+    "seed_reason_code"
+  ],
+  "models": {
+    "classify": "anthropic/claude-haiku-5.5",
+    "classify_served": "anthropic/claude-haiku-5.5",
+    "note": "anthropic/claude-haiku-5.5",
+    "note_served": "anthropic/claude-haiku-5.5"
+  },
+  "prompt_versions": {
+    "classify": "classify-v1",
+    "fewshot": "fewshot-v1",
+    "note": "note-v1"
+  },
+  "latency_s": {
+    "classify": 1.723,
+    "note": 7.614
+  },
+  "usage": {
+    "classify": {
+      "prompt_tokens": 7052,
+      "completion_tokens": 81,
+      "total_tokens": 7133,
+      "cost": 0.0007457,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0007457,
+        "upstream_inference_prompt_cost": 0.0007052,
+        "upstream_inference_completions_cost": 4.05e-05
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    },
+    "note": {
+      "prompt_tokens": 2351,
+      "completion_tokens": 1624,
+      "total_tokens": 3975,
+      "cost": 0.0010471,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0010471,
+        "upstream_inference_prompt_cost": 0.0002351,
+        "upstream_inference_completions_cost": 0.000812
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 1195,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

@@ -1,0 +1,118 @@
+{
+  "id": "T29",
+  "split": "tune",
+  "call_date": "2026-10-15",
+  "intent": "NAD",
+  "escalate_reason": null,
+  "classifier_rationale": "The customer recognized the $42.00 charge as an in-person purchase of candles at a farmers' market stall; no billing error.",
+  "retrieved": [
+    {
+      "id": "REG-13",
+      "score": 31.441,
+      "cited_by_intent": true,
+      "text": "Quality disputes (claims and defenses). A complaint about the quality of goods the cardholder accepted isn't a billing error. It may qualify as a claim against the issuer if the cardholder tried in good faith to resolve it with the merchant, the purchase was over $50, and it happened in the cardholder's state or within 100 miles of their address. The $50 and location limits don't apply when the merchant and issuer are related."
+    },
+    {
+      "id": "POL-01",
+      "score": 20.432,
+      "cited_by_intent": false,
+      "text": "Fraud routing. Any charge the cardholder says they didn't make or authorize goes to the fraud team on the same call. Block the card, reissue, open a fraud claim. Agents do not open these as billing disputes only."
+    },
+    {
+      "id": "REG-01",
+      "score": 18.234,
+      "cited_by_intent": false,
+      "text": "What counts as a billing error. A charge the cardholder didn't authorize; a charge that isn't identified properly; goods or services not accepted or not delivered as agreed; a payment or credit not posted properly; a computational error by the issuer; a request for clarification or documentation about a charge; failure to send a statement to the last known address."
+    }
+  ],
+  "note": "Cardholder Hollis Dunmore reported a $42.00 charge from SQ *BLUE HERON PROV dated 2026-09-28 that they did not recognize. Agent explained the processing record: the card was read in person in East Greenwich around noon. Cardholder then recalled a weekend farmers' market that morning and a purchase of two soy candle jars from a craft booth with a bird sign, priced at exactly $42.00. Cardholder confirmed the charge matches that purchase. No dispute or fraud claim was opened. Next action is RESOLVE_ON_CALL under REG-01 (charge not identified properly, now explained). Still unknown: statement date, and whether the cardholder contacted the merchant (not said). No second issue raised.",
+  "payload": {
+    "intent": "NAD",
+    "escalate_reason": null,
+    "merchant": "SQ *BLUE HERON PROV",
+    "transaction_date": "2026-09-28",
+    "statement_date": "unknown",
+    "amount_posted": 42.0,
+    "amount_disputed": "n/a",
+    "customer_contacted_merchant": "unknown",
+    "within_60_days": "unknown",
+    "notice_link_sent": false,
+    "written_notice_received": "unknown",
+    "temp_credit_eligible": "n/a",
+    "next_action": "RESOLVE_ON_CALL",
+    "policy_ids": [
+      "REG-01"
+    ]
+  },
+  "checks": [],
+  "is_fewshot_example": true,
+  "stripped_fields": [
+    "hard_case",
+    "id",
+    "seed_intent",
+    "seed_reason_code"
+  ],
+  "models": {
+    "classify": "anthropic/claude-haiku-5.5",
+    "classify_served": "anthropic/claude-haiku-5.5",
+    "note": "anthropic/claude-haiku-5.5",
+    "note_served": "anthropic/claude-haiku-5.5"
+  },
+  "prompt_versions": {
+    "classify": "classify-v1",
+    "fewshot": "fewshot-v1",
+    "note": "note-v1"
+  },
+  "latency_s": {
+    "classify": 1.704,
+    "note": 6.919
+  },
+  "usage": {
+    "classify": {
+      "prompt_tokens": 7134,
+      "completion_tokens": 113,
+      "total_tokens": 7247,
+      "cost": 0.0007699,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0007699,
+        "upstream_inference_prompt_cost": 0.0007134,
+        "upstream_inference_completions_cost": 5.65e-05
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 44,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    },
+    "note": {
+      "prompt_tokens": 2433,
+      "completion_tokens": 1505,
+      "total_tokens": 3938,
+      "cost": 0.0009958,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0009958,
+        "upstream_inference_prompt_cost": 0.0002433,
+        "upstream_inference_completions_cost": 0.0007525
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 1048,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

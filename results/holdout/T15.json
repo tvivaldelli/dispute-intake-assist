@@ -1,0 +1,121 @@
+{
+  "id": "T15",
+  "split": "holdout",
+  "call_date": "2026-10-15",
+  "intent": "UN",
+  "escalate_reason": null,
+  "classifier_rationale": "The cardholder's teenage son took the card from her purse without permission and made the $230.00 in-game purchase, which is unauthorized use under the family-member rule.",
+  "retrieved": [
+    {
+      "id": "POL-01",
+      "score": 39.351,
+      "cited_by_intent": false,
+      "text": "Fraud routing. Any charge the cardholder says they didn't make or authorize goes to the fraud team on the same call. Block the card, reissue, open a fraud claim. Agents do not open these as billing disputes only."
+    },
+    {
+      "id": "REG-12",
+      "score": 19.55,
+      "cited_by_intent": false,
+      "text": "Unauthorized use. A charge is unauthorized if someone other than the cardholder made it without actual, implied, or apparent authority, and the cardholder got no benefit from it. State law decides authority. Cardholder liability is capped at the lesser of $50 or the charges made before they notified the issuer. Notice of unauthorized use can be by phone or in writing."
+    },
+    {
+      "id": "REG-01",
+      "score": 19.212,
+      "cited_by_intent": false,
+      "text": "What counts as a billing error. A charge the cardholder didn't authorize; a charge that isn't identified properly; goods or services not accepted or not delivered as agreed; a payment or credit not posted properly; a computational error by the issuer; a request for clarification or documentation about a charge; failure to send a statement to the last known address."
+    }
+  ],
+  "note": "Cardholder Joanna Prentiss reports a $230.00 charge from PixelForge Games dated 2026-09-27 that she did not make or authorize. She states her teenage son took the card from her purse on the kitchen counter, made in-game purchases, and returned the purse. The son confessed when she asked him. The cardholder has never permitted card use and has not contacted the merchant. Next action: FRAUD_TRANSFER under POL-01 (block, reissue, open fraud claim) and REG-12 (unauthorized use). Unknown: statement date, whether written notice has been sent, and whether the cardholder received any benefit. No second issue raised.",
+  "payload": {
+    "intent": "UN",
+    "escalate_reason": null,
+    "merchant": "PixelForge Games",
+    "transaction_date": "2026-09-27",
+    "statement_date": "unknown",
+    "amount_posted": 230.0,
+    "amount_disputed": 230.0,
+    "customer_contacted_merchant": false,
+    "within_60_days": "unknown",
+    "notice_link_sent": false,
+    "written_notice_received": "unknown",
+    "temp_credit_eligible": "n/a",
+    "next_action": "FRAUD_TRANSFER",
+    "policy_ids": [
+      "POL-01",
+      "REG-12"
+    ]
+  },
+  "checks": [
+    "note uses gendered pronouns: ['her', 'him', 'she']"
+  ],
+  "is_fewshot_example": false,
+  "stripped_fields": [
+    "hard_case",
+    "id",
+    "seed_intent",
+    "seed_reason_code"
+  ],
+  "models": {
+    "classify": "anthropic/claude-haiku-5.5",
+    "classify_served": "anthropic/claude-haiku-5.5",
+    "note": "anthropic/claude-haiku-5.5",
+    "note_served": "anthropic/claude-haiku-5.5"
+  },
+  "prompt_versions": {
+    "classify": "classify-v1",
+    "fewshot": "fewshot-v1",
+    "note": "note-v1"
+  },
+  "latency_s": {
+    "classify": 1.644,
+    "note": 6.745
+  },
+  "usage": {
+    "classify": {
+      "prompt_tokens": 7071,
+      "completion_tokens": 79,
+      "total_tokens": 7150,
+      "cost": 0.0007466,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0007466,
+        "upstream_inference_prompt_cost": 0.0007071,
+        "upstream_inference_completions_cost": 3.95e-05
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    },
+    "note": {
+      "prompt_tokens": 2352,
+      "completion_tokens": 1469,
+      "total_tokens": 3821,
+      "cost": 0.0009697,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0009697,
+        "upstream_inference_prompt_cost": 0.0002352,
+        "upstream_inference_completions_cost": 0.0007345
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 1051,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

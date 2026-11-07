@@ -1,0 +1,118 @@
+{
+  "id": "T11",
+  "split": "tune",
+  "call_date": "2026-10-15",
+  "intent": "WA",
+  "escalate_reason": null,
+  "classifier_rationale": "The customer authorized brake work on a $1,150 written quote, but was charged $1,480.00, an overcharge above the agreed amount.",
+  "retrieved": [
+    {
+      "id": "POL-04",
+      "score": 15.733,
+      "cited_by_intent": true,
+      "text": "Written notice link. After a billing-error intake by phone, send the cardholder a link the same day to submit or confirm the dispute electronically. The cardholder's submission is the written notice under REG-03. The call alone is not. POL-04 does not apply to UN, because notice of unauthorized use can be by phone (REG-12)."
+    },
+    {
+      "id": "POL-01",
+      "score": 20.586,
+      "cited_by_intent": false,
+      "text": "Fraud routing. Any charge the cardholder says they didn't make or authorize goes to the fraud team on the same call. Block the card, reissue, open a fraud claim. Agents do not open these as billing disputes only."
+    },
+    {
+      "id": "REG-12",
+      "score": 19.434,
+      "cited_by_intent": false,
+      "text": "Unauthorized use. A charge is unauthorized if someone other than the cardholder made it without actual, implied, or apparent authority, and the cardholder got no benefit from it. State law decides authority. Cardholder liability is capped at the lesser of $50 or the charges made before they notified the issuer. Notice of unauthorized use can be by phone or in writing."
+    }
+  ],
+  "note": "Cardholder Harriet Osei reports Millbrook Auto Care charged $1,480.00 on 2026-09-13 (posted on the 2026-09-23 statement) for brake work quoted in writing at $1,150.00. The cardholder says no one contacted them to approve the higher amount and they signed nothing further. They spoke with the shop desk, which said parts cost more than expected. The cardholder has the printed quote. Billing dispute of the $330.00 difference opened per POL-04; the call is within 60 days (22 days after statement). Electronic notice link sent same day. Unknown: whether the cardholder has already sent written notice, and whether the shop was contacted about a refund. Temp credit not eligible (disputed amount is $250 or more).",
+  "payload": {
+    "intent": "WA",
+    "escalate_reason": null,
+    "merchant": "Millbrook Auto Care",
+    "transaction_date": "2026-09-13",
+    "statement_date": "2026-09-23",
+    "amount_posted": 1480.0,
+    "amount_disputed": 330.0,
+    "customer_contacted_merchant": true,
+    "within_60_days": true,
+    "notice_link_sent": true,
+    "written_notice_received": "unknown",
+    "temp_credit_eligible": false,
+    "next_action": "OPEN_DISPUTE",
+    "policy_ids": [
+      "POL-04"
+    ]
+  },
+  "checks": [],
+  "is_fewshot_example": false,
+  "stripped_fields": [
+    "hard_case",
+    "id",
+    "seed_intent",
+    "seed_reason_code"
+  ],
+  "models": {
+    "classify": "anthropic/claude-haiku-5.5",
+    "classify_served": "anthropic/claude-haiku-5.5",
+    "note": "anthropic/claude-haiku-5.5",
+    "note_served": "anthropic/claude-haiku-5.5"
+  },
+  "prompt_versions": {
+    "classify": "classify-v1",
+    "fewshot": "fewshot-v1",
+    "note": "note-v1"
+  },
+  "latency_s": {
+    "classify": 1.716,
+    "note": 5.078
+  },
+  "usage": {
+    "classify": {
+      "prompt_tokens": 7016,
+      "completion_tokens": 72,
+      "total_tokens": 7088,
+      "cost": 0.0007376,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0007376,
+        "upstream_inference_prompt_cost": 0.0007016,
+        "upstream_inference_completions_cost": 3.6e-05
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    },
+    "note": {
+      "prompt_tokens": 2297,
+      "completion_tokens": 944,
+      "total_tokens": 3241,
+      "cost": 0.0007017,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0007017,
+        "upstream_inference_prompt_cost": 0.0002297,
+        "upstream_inference_completions_cost": 0.000472
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 499,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

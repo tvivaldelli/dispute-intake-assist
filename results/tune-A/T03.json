@@ -1,0 +1,119 @@
+{
+  "id": "T03",
+  "split": "tune",
+  "call_date": "2026-10-15",
+  "intent": "NR",
+  "escalate_reason": null,
+  "classifier_rationale": "The bicycle arrived with a cracked frame and the customer refused delivery, so it was not delivered as agreed.",
+  "retrieved": [
+    {
+      "id": "POL-04",
+      "score": 13.696,
+      "cited_by_intent": true,
+      "text": "Written notice link. After a billing-error intake by phone, send the cardholder a link the same day to submit or confirm the dispute electronically. The cardholder's submission is the written notice under REG-03. The call alone is not. POL-04 does not apply to UN, because notice of unauthorized use can be by phone (REG-12)."
+    },
+    {
+      "id": "REG-08",
+      "score": 31.973,
+      "cited_by_intent": false,
+      "text": "Not delivered as agreed. Includes refusing delivery of nonconforming goods, delivery of something different from what was agreed, wrong quantity, late delivery, and delivery to the wrong place. Does not cover the quality of goods or services the cardholder accepted."
+    },
+    {
+      "id": "REG-13",
+      "score": 21.072,
+      "cited_by_intent": false,
+      "text": "Quality disputes (claims and defenses). A complaint about the quality of goods the cardholder accepted isn't a billing error. It may qualify as a claim against the issuer if the cardholder tried in good faith to resolve it with the merchant, the purchase was over $50, and it happened in the cardholder's state or within 100 miles of their address. The $50 and location limits don't apply when the merchant and issuer are related."
+    }
+  ],
+  "note": "Cardholder reports a $612.40 charge from Ridgeline Cycle Supply on 2026-09-15 for a bicycle ordered. On delivery the frame was cracked. Cardholder refused delivery on the spot, and the driver took the bicycle back. Cardholder emailed the merchant, but the charge still posts. Next action: OPEN_DISPUTE under REG-08 (refused nonconforming goods). Send the POL-04 notice link the same day. Temp credit not eligible (amount is $250 or more). Unknown: statement date, whether the charge is within 60 days, and whether written notice was sent to the issuer (the email went to the merchant). No second issue raised.",
+  "payload": {
+    "intent": "NR",
+    "escalate_reason": null,
+    "merchant": "Ridgeline Cycle Supply",
+    "transaction_date": "2026-09-15",
+    "statement_date": "unknown",
+    "amount_posted": 612.4,
+    "amount_disputed": 612.4,
+    "customer_contacted_merchant": true,
+    "within_60_days": "unknown",
+    "notice_link_sent": true,
+    "written_notice_received": "unknown",
+    "temp_credit_eligible": false,
+    "next_action": "OPEN_DISPUTE",
+    "policy_ids": [
+      "REG-08",
+      "POL-04"
+    ]
+  },
+  "checks": [],
+  "is_fewshot_example": true,
+  "stripped_fields": [
+    "hard_case",
+    "id",
+    "seed_intent",
+    "seed_reason_code"
+  ],
+  "models": {
+    "classify": "anthropic/claude-haiku-5.5",
+    "classify_served": "anthropic/claude-haiku-5.5",
+    "note": "anthropic/claude-haiku-5.5",
+    "note_served": "anthropic/claude-haiku-5.5"
+  },
+  "prompt_versions": {
+    "classify": "classify-v1",
+    "fewshot": "fewshot-v1",
+    "note": "note-v1"
+  },
+  "latency_s": {
+    "classify": 1.841,
+    "note": 8.941
+  },
+  "usage": {
+    "classify": {
+      "prompt_tokens": 7002,
+      "completion_tokens": 148,
+      "total_tokens": 7150,
+      "cost": 0.0007742,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0007742,
+        "upstream_inference_prompt_cost": 0.0007002,
+        "upstream_inference_completions_cost": 7.4e-05
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 83,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    },
+    "note": {
+      "prompt_tokens": 2315,
+      "completion_tokens": 1776,
+      "total_tokens": 4091,
+      "cost": 0.0011195,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0011195,
+        "upstream_inference_prompt_cost": 0.0002315,
+        "upstream_inference_completions_cost": 0.000888
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 1344,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

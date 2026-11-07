@@ -1,0 +1,119 @@
+{
+  "id": "T38",
+  "split": "tune",
+  "call_date": "2026-10-15",
+  "intent": "ESC",
+  "escalate_reason": "LOW_CONFIDENCE",
+  "classifier_rationale": "The caller raised two separate issues in one call: a duplicate $220.00 Harvest Table Market charge (WA) and an undelivered $145.00 Trailhead Gear backpack (NR).",
+  "retrieved": [
+    {
+      "id": "POL-01",
+      "score": 18.857,
+      "cited_by_intent": false,
+      "text": "Fraud routing. Any charge the cardholder says they didn't make or authorize goes to the fraud team on the same call. Block the card, reissue, open a fraud claim. Agents do not open these as billing disputes only."
+    },
+    {
+      "id": "REG-02",
+      "score": 17.758,
+      "cited_by_intent": false,
+      "text": "The 60-day window. The issuer must receive the notice within 60 days after it sent the first statement showing the error. If a statement wasn't sent, the clock runs from when it should have been. For a missing credit, it runs from the statement where the credit should have appeared."
+    },
+    {
+      "id": "REG-13",
+      "score": 16.418,
+      "cited_by_intent": false,
+      "text": "Quality disputes (claims and defenses). A complaint about the quality of goods the cardholder accepted isn't a billing error. It may qualify as a claim against the issuer if the cardholder tried in good faith to resolve it with the merchant, the purchase was over $50, and it happened in the cardholder's state or within 100 miles of their address. The $50 and location limits don't apply when the merchant and issuer are related."
+    }
+  ],
+  "note": "Cardholder Leon Abernathy reported two issues. (1) Harvest Table Market: a $220 charge dated 2026-09-12 posted twice for one checkout. Cardholder called the store manager twice and got no callback. (2) Trailhead Gear: a $145 daypack ordered 2026-09-12 never arrived. Tracking stopped updating, and two messages through the website contact form got no reply. Statement date not stated, so the 60-day window is unknown. No dispute opened. Written notice to the issuer not mentioned. Escalated to supervisor due to low-confidence intent. Supervisor to confirm whether the Harvest charge is a duplicate billing error and how to handle the Trailhead non-delivery under the claims path (REG-13). Unknown: statement date, whether Trailhead is related to the issuer, delivery status beyond the tracking history.",
+  "payload": {
+    "intent": "ESC",
+    "escalate_reason": "LOW_CONFIDENCE",
+    "merchant": "Harvest Table Market",
+    "transaction_date": "2026-09-12",
+    "statement_date": "unknown",
+    "amount_posted": 220,
+    "amount_disputed": 220,
+    "customer_contacted_merchant": true,
+    "within_60_days": "unknown",
+    "notice_link_sent": false,
+    "written_notice_received": "unknown",
+    "temp_credit_eligible": "n/a",
+    "next_action": "SUPERVISOR",
+    "policy_ids": [
+      "REG-02",
+      "REG-13"
+    ]
+  },
+  "checks": [],
+  "is_fewshot_example": false,
+  "stripped_fields": [
+    "hard_case",
+    "id",
+    "seed_intent",
+    "seed_reason_code"
+  ],
+  "models": {
+    "classify": "anthropic/claude-haiku-5.5",
+    "classify_served": "anthropic/claude-haiku-5.5",
+    "note": "anthropic/claude-haiku-5.5",
+    "note_served": "anthropic/claude-haiku-5.5"
+  },
+  "prompt_versions": {
+    "classify": "classify-v1",
+    "fewshot": "fewshot-v1",
+    "note": "note-v1"
+  },
+  "latency_s": {
+    "classify": 2.3,
+    "note": 9.264
+  },
+  "usage": {
+    "classify": {
+      "prompt_tokens": 7253,
+      "completion_tokens": 292,
+      "total_tokens": 7545,
+      "cost": 0.0008713,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0008713,
+        "upstream_inference_prompt_cost": 0.0007253,
+        "upstream_inference_completions_cost": 0.000146
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 186,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    },
+    "note": {
+      "prompt_tokens": 2544,
+      "completion_tokens": 1894,
+      "total_tokens": 4438,
+      "cost": 0.0012014,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0012014,
+        "upstream_inference_prompt_cost": 0.0002544,
+        "upstream_inference_completions_cost": 0.000947
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 1397,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

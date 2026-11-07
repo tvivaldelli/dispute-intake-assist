@@ -1,0 +1,119 @@
+{
+  "id": "T36",
+  "split": "holdout",
+  "call_date": "2026-10-15",
+  "intent": "ESC",
+  "escalate_reason": "SOP_GAP",
+  "classifier_rationale": "The cardholder is deceased and the caller is a third party (his son) without documented authorization, which policy does not cover, so the case goes to a human even though the signs point to unauthorized use.",
+  "retrieved": [
+    {
+      "id": "POL-01",
+      "score": 17.495,
+      "cited_by_intent": false,
+      "text": "Fraud routing. Any charge the cardholder says they didn't make or authorize goes to the fraud team on the same call. Block the card, reissue, open a fraud claim. Agents do not open these as billing disputes only."
+    },
+    {
+      "id": "POL-06",
+      "score": 14.886,
+      "cited_by_intent": false,
+      "text": "Escalation. Business accounts, deceased cardholders, third-party callers without authorization on file, and abusive callers go to a supervisor with a reason code."
+    },
+    {
+      "id": "REG-01",
+      "score": 14.165,
+      "cited_by_intent": false,
+      "text": "What counts as a billing error. A charge the cardholder didn't authorize; a charge that isn't identified properly; goods or services not accepted or not delivered as agreed; a payment or credit not posted properly; a computational error by the issuer; a request for clarification or documentation about a charge; failure to send a statement to the last known address."
+    }
+  ],
+  "note": "Caller Nathaniel Greer, the cardholder's son, reports that cardholder Walter Greer has died. Caller reports a $180.00 Elmstead Pharmacy charge on 2026-09-20 was not authorized. Per caller, the cardholder was hospitalized in early September, the card was kept in the hospital safe, and no one had permission to use it. Caller phoned Elmstead a few days ago; the merchant would not release receipt details because the account is in the cardholder's name. No billing dispute or fraud claim was opened. Escalated to supervisor, reason SOP_GAP: deceased cardholder and third-party caller (POL-06). The unauthorized-charge claim falls under fraud routing (POL-01). Unknown: statement date, caller's authority to act for the cardholder, and any written notice sent.",
+  "payload": {
+    "intent": "ESC",
+    "escalate_reason": "SOP_GAP",
+    "merchant": "Elmstead Pharmacy",
+    "transaction_date": "2026-09-20",
+    "statement_date": "unknown",
+    "amount_posted": 180.0,
+    "amount_disputed": "n/a",
+    "customer_contacted_merchant": true,
+    "within_60_days": "unknown",
+    "notice_link_sent": false,
+    "written_notice_received": "unknown",
+    "temp_credit_eligible": "n/a",
+    "next_action": "SUPERVISOR",
+    "policy_ids": [
+      "POL-06",
+      "POL-01"
+    ]
+  },
+  "checks": [],
+  "is_fewshot_example": false,
+  "stripped_fields": [
+    "hard_case",
+    "id",
+    "seed_intent",
+    "seed_reason_code"
+  ],
+  "models": {
+    "classify": "anthropic/claude-haiku-5.5",
+    "classify_served": "anthropic/claude-haiku-5.5",
+    "note": "anthropic/claude-haiku-5.5",
+    "note_served": "anthropic/claude-haiku-5.5"
+  },
+  "prompt_versions": {
+    "classify": "classify-v1",
+    "fewshot": "fewshot-v1",
+    "note": "note-v1"
+  },
+  "latency_s": {
+    "classify": 2.01,
+    "note": 7.22
+  },
+  "usage": {
+    "classify": {
+      "prompt_tokens": 7128,
+      "completion_tokens": 191,
+      "total_tokens": 7319,
+      "cost": 0.0008083,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0008083,
+        "upstream_inference_prompt_cost": 0.0007128,
+        "upstream_inference_completions_cost": 9.55e-05
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 97,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    },
+    "note": {
+      "prompt_tokens": 2352,
+      "completion_tokens": 1527,
+      "total_tokens": 3879,
+      "cost": 0.0009987,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0009987,
+        "upstream_inference_prompt_cost": 0.0002352,
+        "upstream_inference_completions_cost": 0.0007635
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 1044,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

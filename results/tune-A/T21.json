@@ -1,0 +1,119 @@
+{
+  "id": "T21",
+  "split": "tune",
+  "call_date": "2026-10-15",
+  "intent": "UN",
+  "escalate_reason": null,
+  "classifier_rationale": "The customer says they never rented the car, have never been to Oregon, and kept the card in their wallet with no one else having access, so the charge was made without authorization even though they called it a billing mistake.",
+  "retrieved": [
+    {
+      "id": "POL-01",
+      "score": 44.147,
+      "cited_by_intent": false,
+      "text": "Fraud routing. Any charge the cardholder says they didn't make or authorize goes to the fraud team on the same call. Block the card, reissue, open a fraud claim. Agents do not open these as billing disputes only."
+    },
+    {
+      "id": "REG-12",
+      "score": 22.193,
+      "cited_by_intent": false,
+      "text": "Unauthorized use. A charge is unauthorized if someone other than the cardholder made it without actual, implied, or apparent authority, and the cardholder got no benefit from it. State law decides authority. Cardholder liability is capped at the lesser of $50 or the charges made before they notified the issuer. Notice of unauthorized use can be by phone or in writing."
+    },
+    {
+      "id": "REG-01",
+      "score": 21.263,
+      "cited_by_intent": false,
+      "text": "What counts as a billing error. A charge the cardholder didn't authorize; a charge that isn't identified properly; goods or services not accepted or not delivered as agreed; a payment or credit not posted properly; a computational error by the issuer; a request for clarification or documentation about a charge; failure to send a statement to the last known address."
+    }
+  ],
+  "note": "Cardholder reports a $412.30 charge from Coastline Car Rental dated 2026-09-14, posted on the 2026-09-24 statement. They state they never rented a vehicle, have never been to Oregon (where the online receipt places the charge), and gave no one else permission to use the card. They say the card stayed in their wallet and suggested a possible merchant typing error. They tried the merchant's main number once; it rang to voicemail and no answer was received. Call is 21 days after statement, within the 60-day window. Next action FRAUD_TRANSFER per POL-01: block, reissue, open fraud claim under REG-12. Unknown: how the card number was obtained, whether other charges are affected, and whether any written notice was sent.",
+  "payload": {
+    "intent": "UN",
+    "escalate_reason": null,
+    "merchant": "Coastline Car Rental",
+    "transaction_date": "2026-09-14",
+    "statement_date": "2026-09-24",
+    "amount_posted": 412.3,
+    "amount_disputed": 412.3,
+    "customer_contacted_merchant": true,
+    "within_60_days": true,
+    "notice_link_sent": false,
+    "written_notice_received": "unknown",
+    "temp_credit_eligible": "n/a",
+    "next_action": "FRAUD_TRANSFER",
+    "policy_ids": [
+      "POL-01",
+      "REG-12"
+    ]
+  },
+  "checks": [],
+  "is_fewshot_example": false,
+  "stripped_fields": [
+    "hard_case",
+    "id",
+    "seed_intent",
+    "seed_reason_code"
+  ],
+  "models": {
+    "classify": "anthropic/claude-haiku-5.5",
+    "classify_served": "anthropic/claude-haiku-5.5",
+    "note": "anthropic/claude-haiku-5.5",
+    "note_served": "anthropic/claude-haiku-5.5"
+  },
+  "prompt_versions": {
+    "classify": "classify-v1",
+    "fewshot": "fewshot-v1",
+    "note": "note-v1"
+  },
+  "latency_s": {
+    "classify": 2.225,
+    "note": 6.867
+  },
+  "usage": {
+    "classify": {
+      "prompt_tokens": 7126,
+      "completion_tokens": 181,
+      "total_tokens": 7307,
+      "cost": 0.0008031,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0008031,
+        "upstream_inference_prompt_cost": 0.0007126,
+        "upstream_inference_completions_cost": 9.05e-05
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 94,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    },
+    "note": {
+      "prompt_tokens": 2407,
+      "completion_tokens": 1368,
+      "total_tokens": 3775,
+      "cost": 0.0009247,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0009247,
+        "upstream_inference_prompt_cost": 0.0002407,
+        "upstream_inference_completions_cost": 0.000684
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 922,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

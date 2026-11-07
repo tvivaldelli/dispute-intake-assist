@@ -1,0 +1,118 @@
+{
+  "id": "T09",
+  "split": "tune",
+  "call_date": "2026-10-15",
+  "intent": "WA",
+  "escalate_reason": null,
+  "classifier_rationale": "The customer's signed receipt shows a $68 total with a $12 tip, but the posted charge is $98 with a $42 tip, which is an altered tip. The customer also asked about an annual fee increase, a secondary issue the agent deferred.",
+  "retrieved": [
+    {
+      "id": "POL-04",
+      "score": 16.74,
+      "cited_by_intent": true,
+      "text": "Written notice link. After a billing-error intake by phone, send the cardholder a link the same day to submit or confirm the dispute electronically. The cardholder's submission is the written notice under REG-03. The call alone is not. POL-04 does not apply to UN, because notice of unauthorized use can be by phone (REG-12)."
+    },
+    {
+      "id": "POL-01",
+      "score": 18.835,
+      "cited_by_intent": false,
+      "text": "Fraud routing. Any charge the cardholder says they didn't make or authorize goes to the fraud team on the same call. Block the card, reissue, open a fraud claim. Agents do not open these as billing disputes only."
+    },
+    {
+      "id": "REG-13",
+      "score": 18.251,
+      "cited_by_intent": false,
+      "text": "Quality disputes (claims and defenses). A complaint about the quality of goods the cardholder accepted isn't a billing error. It may qualify as a claim against the issuer if the cardholder tried in good faith to resolve it with the merchant, the purchase was over $50, and it happened in the cardholder's state or within 100 miles of their address. The $50 and location limits don't apply when the merchant and issuer are related."
+    }
+  ],
+  "note": "Cardholder Tessa Brannigan reports a Copper Kettle Bistro charge dated 2026-09-21 that posted at $98.00. The cardholder's receipt copy shows a $56.00 meal, $12.00 tip, and $68.00 total, so the disputed difference is $30.00 (implied $42.00 tip). The cardholder called the merchant twice last week; both calls went to voicemail and no one called back. Next action: open billing-error dispute and send the same-day electronic notice link per POL-04. Written notice not yet received. Temporary credit eligible (under $250). Second issue raised: annual fee increase, not addressed on this call; needs follow-up. Unknown: statement date, and whether the cardholder has sent any written notice.",
+  "payload": {
+    "intent": "WA",
+    "escalate_reason": null,
+    "merchant": "Copper Kettle Bistro",
+    "transaction_date": "2026-09-21",
+    "statement_date": "unknown",
+    "amount_posted": 98.0,
+    "amount_disputed": 30.0,
+    "customer_contacted_merchant": true,
+    "within_60_days": "unknown",
+    "notice_link_sent": true,
+    "written_notice_received": "unknown",
+    "temp_credit_eligible": true,
+    "next_action": "OPEN_DISPUTE",
+    "policy_ids": [
+      "POL-04"
+    ]
+  },
+  "checks": [],
+  "is_fewshot_example": false,
+  "stripped_fields": [
+    "hard_case",
+    "id",
+    "seed_intent",
+    "seed_reason_code"
+  ],
+  "models": {
+    "classify": "anthropic/claude-haiku-5.5",
+    "classify_served": "anthropic/claude-haiku-5.5",
+    "note": "anthropic/claude-haiku-5.5",
+    "note_served": "anthropic/claude-haiku-5.5"
+  },
+  "prompt_versions": {
+    "classify": "classify-v1",
+    "fewshot": "fewshot-v1",
+    "note": "note-v1"
+  },
+  "latency_s": {
+    "classify": 2.179,
+    "note": 7.052
+  },
+  "usage": {
+    "classify": {
+      "prompt_tokens": 7098,
+      "completion_tokens": 234,
+      "total_tokens": 7332,
+      "cost": 0.0008268,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0008268,
+        "upstream_inference_prompt_cost": 0.0007098,
+        "upstream_inference_completions_cost": 0.000117
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 128,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    },
+    "note": {
+      "prompt_tokens": 2396,
+      "completion_tokens": 1491,
+      "total_tokens": 3887,
+      "cost": 0.0009851,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0009851,
+        "upstream_inference_prompt_cost": 0.0002396,
+        "upstream_inference_completions_cost": 0.0007455
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 1045,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

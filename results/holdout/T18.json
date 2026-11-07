@@ -1,0 +1,118 @@
+{
+  "id": "T18",
+  "split": "holdout",
+  "call_date": "2026-10-15",
+  "intent": "UN",
+  "escalate_reason": null,
+  "classifier_rationale": "The cardholder lost the card, never visited the area, and did not share it, so the October 2 charges in Tallow Creek were made without authorization.",
+  "retrieved": [
+    {
+      "id": "POL-01",
+      "score": 36.954,
+      "cited_by_intent": false,
+      "text": "Fraud routing. Any charge the cardholder says they didn't make or authorize goes to the fraud team on the same call. Block the card, reissue, open a fraud claim. Agents do not open these as billing disputes only."
+    },
+    {
+      "id": "POL-04",
+      "score": 15.103,
+      "cited_by_intent": false,
+      "text": "Written notice link. After a billing-error intake by phone, send the cardholder a link the same day to submit or confirm the dispute electronically. The cardholder's submission is the written notice under REG-03. The call alone is not. POL-04 does not apply to UN, because notice of unauthorized use can be by phone (REG-12)."
+    },
+    {
+      "id": "REG-07",
+      "score": 14.785,
+      "cited_by_intent": false,
+      "text": "While the dispute is open. The issuer can't collect the disputed amount or related finance charges, can't report them as delinquent, and can't accelerate the debt or restrict the account because the cardholder used these rights. The issuer can still collect the undisputed balance, report the account as \"in dispute,\" and hold the disputed amount against the credit limit."
+    }
+  ],
+  "note": "Cardholder reports losing their card on a weekend drive in early October; they believe it slipped out of a jacket pocket. They see several charges dated 2026-10-02 from different stores in Tallow Creek. Cardholder says they have never been to Tallow Creek and did not lend or share the card with anyone. Next action: FRAUD_TRANSFER under POL-01 (block card, reissue, open fraud claim on this call). Not stated: merchant names, amounts, statement date, whether the cardholder contacted any merchant, and whether written notice was sent. No second issue raised.",
+  "payload": {
+    "intent": "UN",
+    "escalate_reason": null,
+    "merchant": "unknown",
+    "transaction_date": "2026-10-02",
+    "statement_date": "unknown",
+    "amount_posted": "unknown",
+    "amount_disputed": "unknown",
+    "customer_contacted_merchant": "unknown",
+    "within_60_days": "unknown",
+    "notice_link_sent": false,
+    "written_notice_received": "unknown",
+    "temp_credit_eligible": "n/a",
+    "next_action": "FRAUD_TRANSFER",
+    "policy_ids": [
+      "POL-01"
+    ]
+  },
+  "checks": [],
+  "is_fewshot_example": false,
+  "stripped_fields": [
+    "hard_case",
+    "id",
+    "seed_intent",
+    "seed_reason_code"
+  ],
+  "models": {
+    "classify": "anthropic/claude-haiku-5.5",
+    "classify_served": "anthropic/claude-haiku-5.5",
+    "note": "anthropic/claude-haiku-5.5",
+    "note_served": "anthropic/claude-haiku-5.5"
+  },
+  "prompt_versions": {
+    "classify": "classify-v1",
+    "fewshot": "fewshot-v1",
+    "note": "note-v1"
+  },
+  "latency_s": {
+    "classify": 1.617,
+    "note": 6.268
+  },
+  "usage": {
+    "classify": {
+      "prompt_tokens": 6998,
+      "completion_tokens": 73,
+      "total_tokens": 7071,
+      "cost": 0.0007363,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0007363,
+        "upstream_inference_prompt_cost": 0.0006998,
+        "upstream_inference_completions_cost": 3.65e-05
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    },
+    "note": {
+      "prompt_tokens": 2270,
+      "completion_tokens": 1298,
+      "total_tokens": 3568,
+      "cost": 0.000876,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.000876,
+        "upstream_inference_prompt_cost": 0.000227,
+        "upstream_inference_completions_cost": 0.000649
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 912,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

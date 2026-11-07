@@ -1,0 +1,120 @@
+{
+  "id": "T22",
+  "split": "tune",
+  "call_date": "2026-10-15",
+  "intent": "CNP",
+  "escalate_reason": null,
+  "classifier_rationale": "The customer returned the shoes in store, the cashier processed a return to the card, and the credit has not posted after the September 27 statement.",
+  "retrieved": [
+    {
+      "id": "POL-03",
+      "score": 44.068,
+      "cited_by_intent": true,
+      "text": "Merchant credit wait period. If the merchant's credit or refund is dated less than 10 business days ago, set the expectation and schedule a follow-up. If it's older, or a statement closed without it, open a billing-error dispute."
+    },
+    {
+      "id": "POL-04",
+      "score": 18.2,
+      "cited_by_intent": true,
+      "text": "Written notice link. After a billing-error intake by phone, send the cardholder a link the same day to submit or confirm the dispute electronically. The cardholder's submission is the written notice under REG-03. The call alone is not. POL-04 does not apply to UN, because notice of unauthorized use can be by phone (REG-12)."
+    },
+    {
+      "id": "REG-07",
+      "score": 19.917,
+      "cited_by_intent": false,
+      "text": "While the dispute is open. The issuer can't collect the disputed amount or related finance charges, can't report them as delinquent, and can't accelerate the debt or restrict the account because the cardholder used these rights. The issuer can still collect the undisputed balance, report the account as \"in dispute,\" and hold the disputed amount against the credit limit."
+    }
+  ],
+  "note": "Cardholder Ingrid Solano reports an in-store return of a $135.00 Fernway Footwear purchase made September 17. The cashier ran the return and gave a return slip, but the credit has not posted. The return was about 16 business days ago per the cardholder. The September 27 statement closed without the credit, and the cardholder checked online through today. The cardholder still has the slip showing the return was processed to this card. POL-03 applies: the credit is older than 10 business days and a statement closed without it, so a billing-error dispute is opened. Send the POL-04 written-notice link the same day. Unknown: whether the cardholder contacted Fernway about the missing credit, and whether written notice was already sent. No second issue was raised.",
+  "payload": {
+    "intent": "CNP",
+    "escalate_reason": null,
+    "merchant": "Fernway Footwear",
+    "transaction_date": "2026-09-17",
+    "statement_date": "2026-09-27",
+    "amount_posted": 135.0,
+    "amount_disputed": 135.0,
+    "customer_contacted_merchant": "unknown",
+    "within_60_days": true,
+    "notice_link_sent": true,
+    "written_notice_received": "unknown",
+    "temp_credit_eligible": true,
+    "next_action": "OPEN_DISPUTE",
+    "policy_ids": [
+      "POL-03",
+      "POL-04",
+      "REG-07"
+    ]
+  },
+  "checks": [],
+  "is_fewshot_example": true,
+  "stripped_fields": [
+    "hard_case",
+    "id",
+    "seed_intent",
+    "seed_reason_code"
+  ],
+  "models": {
+    "classify": "anthropic/claude-haiku-5.5",
+    "classify_served": "anthropic/claude-haiku-5.5",
+    "note": "anthropic/claude-haiku-5.5",
+    "note_served": "anthropic/claude-haiku-5.5"
+  },
+  "prompt_versions": {
+    "classify": "classify-v1",
+    "fewshot": "fewshot-v1",
+    "note": "note-v1"
+  },
+  "latency_s": {
+    "classify": 1.838,
+    "note": 8.107
+  },
+  "usage": {
+    "classify": {
+      "prompt_tokens": 7024,
+      "completion_tokens": 114,
+      "total_tokens": 7138,
+      "cost": 0.0007594,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0007594,
+        "upstream_inference_prompt_cost": 0.0007024,
+        "upstream_inference_completions_cost": 5.7e-05
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 44,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    },
+    "note": {
+      "prompt_tokens": 2299,
+      "completion_tokens": 1553,
+      "total_tokens": 3852,
+      "cost": 0.0010064,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0010064,
+        "upstream_inference_prompt_cost": 0.0002299,
+        "upstream_inference_completions_cost": 0.0007765
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 1106,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

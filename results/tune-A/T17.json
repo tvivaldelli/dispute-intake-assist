@@ -1,0 +1,118 @@
+{
+  "id": "T17",
+  "split": "tune",
+  "call_date": "2026-10-15",
+  "intent": "UN",
+  "escalate_reason": null,
+  "classifier_rationale": "The customer's adult brother used the card to buy a laptop without the cardholder's permission, which is unauthorized use.",
+  "retrieved": [
+    {
+      "id": "POL-01",
+      "score": 39.351,
+      "cited_by_intent": false,
+      "text": "Fraud routing. Any charge the cardholder says they didn't make or authorize goes to the fraud team on the same call. Block the card, reissue, open a fraud claim. Agents do not open these as billing disputes only."
+    },
+    {
+      "id": "REG-07",
+      "score": 20.227,
+      "cited_by_intent": false,
+      "text": "While the dispute is open. The issuer can't collect the disputed amount or related finance charges, can't report them as delinquent, and can't accelerate the debt or restrict the account because the cardholder used these rights. The issuer can still collect the undisputed balance, report the account as \"in dispute,\" and hold the disputed amount against the credit limit."
+    },
+    {
+      "id": "POL-04",
+      "score": 17.501,
+      "cited_by_intent": false,
+      "text": "Written notice link. After a billing-error intake by phone, send the cardholder a link the same day to submit or confirm the dispute electronically. The cardholder's submission is the written notice under REG-03. The call alone is not. POL-04 does not apply to UN, because notice of unauthorized use can be by phone (REG-12)."
+    }
+  ],
+  "note": "Cardholder reports an $899.00 charge at VoltWorks Electronics dated September 25, 2026, for a laptop. Cardholder states an adult brother who was staying with them made the purchase without permission and admitted it when asked. Cardholder has the card in hand. Brother has since moved out. Next action: FRAUD_TRANSFER to the fraud team per POL-01 (block, reissue, open fraud claim), not a billing dispute. Still unknown: statement date and whether cardholder contacted the merchant. The call did not say whether the card was blocked. No second issue raised.",
+  "payload": {
+    "intent": "UN",
+    "escalate_reason": null,
+    "merchant": "VoltWorks Electronics",
+    "transaction_date": "2026-09-25",
+    "statement_date": "unknown",
+    "amount_posted": 899.0,
+    "amount_disputed": 899.0,
+    "customer_contacted_merchant": "unknown",
+    "within_60_days": "unknown",
+    "notice_link_sent": false,
+    "written_notice_received": "unknown",
+    "temp_credit_eligible": "n/a",
+    "next_action": "FRAUD_TRANSFER",
+    "policy_ids": [
+      "POL-01"
+    ]
+  },
+  "checks": [],
+  "is_fewshot_example": true,
+  "stripped_fields": [
+    "hard_case",
+    "id",
+    "seed_intent",
+    "seed_reason_code"
+  ],
+  "models": {
+    "classify": "anthropic/claude-haiku-5.5",
+    "classify_served": "anthropic/claude-haiku-5.5",
+    "note": "anthropic/claude-haiku-5.5",
+    "note_served": "anthropic/claude-haiku-5.5"
+  },
+  "prompt_versions": {
+    "classify": "classify-v1",
+    "fewshot": "fewshot-v1",
+    "note": "note-v1"
+  },
+  "latency_s": {
+    "classify": 1.645,
+    "note": 6.85
+  },
+  "usage": {
+    "classify": {
+      "prompt_tokens": 7004,
+      "completion_tokens": 111,
+      "total_tokens": 7115,
+      "cost": 0.0007559,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0007559,
+        "upstream_inference_prompt_cost": 0.0007004,
+        "upstream_inference_completions_cost": 5.55e-05
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 46,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    },
+    "note": {
+      "prompt_tokens": 2276,
+      "completion_tokens": 1376,
+      "total_tokens": 3652,
+      "cost": 0.0009156,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0009156,
+        "upstream_inference_prompt_cost": 0.0002276,
+        "upstream_inference_completions_cost": 0.000688
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 980,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

@@ -15,8 +15,8 @@ Run Python through `.venv\Scripts\python.exe`. Smoke test: `scripts/smoke_test.p
 
 ## Rules from here on
 
-- No prompt or retrieval changes. Prompts frozen at 9f64749.
-- The holdout is never rerun. It was run once at 21c7a93.
+- No prompt or retrieval changes. Prompts frozen: private working repo, commit 9f64749 (prompts frozen, 2026-10-28 17:28:10 -0500).
+- The holdout is never rerun. It was run once: private working repo, commit 21c7a93 (holdout run, 2026-10-28 17:30:07 -0500).
 
 ## Current state
 
@@ -28,11 +28,6 @@ Run Python through `.venv\Scripts\python.exe`. Smoke test: `scripts/smoke_test.p
 - Holdout notes hand-scored (`results/holdout/note_scores.md`): Complete 12/12, Correct next step 12/12, Grounded 12/12, Usable handoff 10/12.
 - Review screen done: `.venv\Scripts\python.exe review\server.py`, then http://127.0.0.1:8765/. Log: `review/review_log.jsonl` (ignored).
 - Honest limits are tracked in `data/labeling_notes.md`.
-
-## Next
-
-1. Write-up.
-2. Loom.
 
 ## Known issues
 

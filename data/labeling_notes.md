@@ -25,12 +25,12 @@ Honest limits, running list:
 - Synthetic transcripts, one generator model. No human baseline.
 - One intent per call. A real system would split T38 into two disputes.
 - CUSTOMER_RISK has no clean case. The one generated became a fraud case under the precedence rule.
-- Generator leaked day counts in 10 cases. Caught before labeling and regenerated (344d064).
+- Generator leaked day counts in 10 cases. Caught before labeling and regenerated: private working repo, commit 344d064 (10 cases regenerated, 2026-10-28 13:49:31 -0500).
 - T38 excluded from gold-field scoring: one row can't hold three accepted answers.
 - Intent for T01–T10 labeled by me; remaining labels and all gold fields drafted by Claude (same family as the classifier, had seen the generator's scenario seeds), reviewed and corrected by me.
 - Holdout blind relabel (Oct 28): 6 of 8 intents matched the drafted labels. Both disagreements (T15, T37) were resolved in favor of the drafted label per the spec. Both sit on the UN boundary.
 - Two tune runs, same prompts: 0 of 28 intent or next_action changes. Note wording varied between runs.
-- Holdout run once at 21c7a93, prompts frozen at 9f64749. No changes after seeing it.
+- Holdout run once: private working repo, commit 21c7a93 (holdout run, 2026-10-28 17:30:07 -0500). Prompts frozen before it: private working repo, commit 9f64749 (prompts frozen, 2026-10-28 17:28:10 -0500). No changes after seeing it.
 - Policy-id recall: 6 of 20 tune, 2 of 12 holdout. Retrieval not fixed after the holdout run.
 - escalate_reason is not scored. Pronoun flags are not yet checked for who they refer to.
 

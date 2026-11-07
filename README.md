@@ -13,8 +13,8 @@ It reads a card billing-dispute call transcript and classifies the intent (not r
 - **Order of events** (from the private working repo this was published from, 2026-10-28, -0500):
   - split locked: commit a5cbc78, 16:20:46
   - prompts first committed: commit 2cde1cf, 17:07:15 (unchanged after this)
-  - prompts frozen: commit 9f64749, 17:28:10
-  - holdout run: commit 21c7a93, 17:30:07; run folder `20261028-173014` (17:30:14)
+  - prompts frozen: commit 9f64749, 17:28:10 (adds the scorer only; marks the freeze, no prompt change)
+  - holdout run: commit 21c7a93, 17:30:07 (adds report-only policy-id recall to the scorer); run folder `20261028-173014` (17:30:14)
   - The holdout ran once and nothing was changed after seeing it.
 - **Cost-weighted error grid** (spec section 4). Errors are priced by who gets hurt, not counted equally.
   - *UNAUTHORIZED row, all customer harm:* missed fraud lets more charges land, so UN is tuned for recall. Over-routing a real purchase to fraud costs only a card reissue.
@@ -24,7 +24,7 @@ It reads a card billing-dispute call transcript and classifies the intent (not r
 
 ## Results (holdout)
 
-**12 cases is a smoke signal, not a benchmark.** Two cases per class can't separate a good classifier from a lucky one. The spec treats the holdout as a leakage check, not a performance claim.
+**12 cases is a smoke signal, not a benchmark.** Two cases per class can't separate a good classifier from a lucky one. The holdout is there to catch overfitting to the 28 tune cases, not to make a performance claim.
 
 | Measure | Holdout |
 |---|---|
@@ -46,9 +46,9 @@ It reads a card billing-dispute call transcript and classifies the intent (not r
 | Grounded | [12/12](results/holdout/note_scores.md) |
 | Usable handoff | [10/12](results/holdout/note_scores.md#usable-handoff-n) (T30, T37) |
 
-- **Leakage check.** Tune run A ([report](results/tune-A/report.md)) scored the same as the holdout on its 21 clean cases: intent 21 of 21, UN 4 of 4, disputes 16 of 16. Next action and gold fields were 20 of 20 (T38 is scored on intent only). That means no tune/holdout gap. It also means both sets are at the ceiling, and they can't show a gap even if one exists.
+- **Tune vs. holdout.** Tune run A ([report](results/tune-A/report.md)) scored the same as the holdout on its 21 clean cases: intent 21 of 21, UN 4 of 4, disputes 16 of 16. Next action and gold fields were 20 of 20 (T38 is scored on intent only). That means no sign of overfitting. It also means both sets are at the ceiling, and they can't show a gap even if one exists.
 - **Few-shot.** 7 tune cases are few-shot examples in the classifier prompt (T03, T14, T17, T22, T29, T39, T40). They're excluded from tune scoring. None is in the holdout.
-- **Blind relabel.** The case IDs weren't recorded. The author did a blind relabel of 8 holdout cases: 6 matched, and T15 and T37 disagreed. Both disagreements sit on the UN boundary and were resolved in favor of the drafted label, per the spec.
+- **Blind relabel.** The author blind-relabeled 8 holdout cases (IDs not recorded): 6 matched, and T15 and T37 disagreed. Both disagreements sit on the UN boundary and were resolved in favor of the drafted label, per the spec.
 - **The weak spot is retrieval, not classification.** The right decisions often cite the wrong basis. [`findings.md`](results/holdout/findings.md) lists the post-run review: wrong or missing citations on T08, T30 and T37, and notes that describe proposed actions as done.
 
 ## Errata

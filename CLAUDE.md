@@ -38,6 +38,6 @@ Run Python through `.venv\Scripts\python.exe`. Smoke test: `scripts/smoke_test.p
 
 - `.gitignore` ignores `docs/` and `*.png`. Files there won't be committed.
 - Empty `.env` values override defaults: python-dotenv loads `KEY=` as `""`, so `os.getenv(KEY, default)` returns `""`.
-- Dependencies are mostly unpinned. `requirements.lock.txt` was frozen on Windows / Python 3.12.10.
-- `backend/requirements.txt` still lists packages from the old app that the pipeline doesn't use, and `.env.example` comments are stale. Left as is until asked.
+- `backend/requirements.txt` lists minimum versions. `requirements.lock.txt` pins the versions that ran (frozen on Windows / Python 3.12.10).
+- `.env.example` comments are stale. Left as is until asked.
 - T16 and T20 contain `�` replacement characters in the source text. Left as is.

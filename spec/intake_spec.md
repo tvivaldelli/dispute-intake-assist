@@ -142,5 +142,5 @@ Notes hand-scored by the author (12 holdout notes, `results/holdout/note_scores.
 - At least 2 hard cases per class from the list in section 1.
 - Each labeled with: intent, escalate reason (if any), expected policy IDs (1 to 3), expected next action, gold values for four payload fields: amount_disputed, within_60_days, temp_credit_eligible, notice_link_sent. These are the fields where money moves or a protection depends on the answer. The other payload fields are scored through the rubric (complete and grounded), not against gold.
 - Split before writing any prompt: 28 tune, 12 holdout, stratified with 2 per class in holdout, including ESC.
-- The holdout is a leakage check, run once at the end. It is not a performance claim.
+- The holdout is there to catch overfitting to the 28 tune cases, run once at the end. It is not a performance claim.
 - Report per-class results as counts (for example, "UN recall 7 of 7"), not percentages.

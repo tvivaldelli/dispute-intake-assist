@@ -34,4 +34,3 @@ Run Python through `.venv\Scripts\python.exe`. Smoke test: `scripts/smoke_test.p
 - `.gitignore` ignores `docs/` and `*.png`. Files there won't be committed.
 - Empty `.env` values override defaults: python-dotenv loads `KEY=` as `""`, so `os.getenv(KEY, default)` returns `""`.
 - `backend/requirements.txt` lists minimum versions. `requirements.lock.txt` pins the versions that ran (frozen on Windows / Python 3.12.10).
-- T16 and T20 contain `�` replacement characters in the source text. Left as is.

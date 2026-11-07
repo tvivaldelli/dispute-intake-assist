@@ -51,6 +51,13 @@ It reads a card billing-dispute call transcript and classifies the intent (not r
 - **Blind relabel.** The author blind-relabeled 8 holdout cases (IDs not recorded): 6 matched, and T15 and T37 disagreed. Both disagreements sit on the UN boundary and were resolved in favor of the drafted label, per the spec.
 - **The weak spot is retrieval, not classification.** The right decisions often cite the wrong basis. [`findings.md`](results/holdout/findings.md) lists the post-run review: wrong or missing citations on T08, T30 and T37, and notes that describe proposed actions as done.
 
+## What I'd change next
+
+- **The model classifies and extracts facts:** the intent plus the payload facts (merchant, dates, amounts, whether the customer contacted the merchant).
+- **Rules pick the next action and policy basis**, keyed on intent and those facts, not on keyword retrieval. Next action was already 12 of 12. The gain is in the basis (policy-id recall 2 of 12) and in checks the pipeline skips today, like deriving `within_60_days` from dates and validating `temp_credit_eligible`. Judgment calls such as quality complaint vs. not (T31) move into fact extraction; they don't go away.
+- **Retrieval only supplies supporting text for the note**, and the note cites only the ids the rules chose.
+- **Write action definitions as proposals** ("propose opening a billing-error dispute"), so notes and payloads say what's proposed, not what's done.
+
 ## Errata
 
 These corpus issues were found in a post-run review against the eCFR text (as of 2026-11-05). **The corpus is published as it ran. The corrections below haven't been evaluated.** Sources: [§ 1026.13](https://www.ecfr.gov/current/title-12/part-1026/section-1026.13) and [Supplement I to Part 1026](https://www.ecfr.gov/current/title-12/part-1026/appendix-Supplement%20I%20to%20Part%201026) (official commentary).

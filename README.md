@@ -19,6 +19,7 @@ It reads a card billing-dispute call transcript and classifies the intent (not r
 - **Cost-weighted error grid** (spec section 4). Errors are priced by who gets hurt, not counted equally.
   - *UNAUTHORIZED row, all customer harm:* missed fraud lets more charges land, so UN is tuned for recall. Over-routing a real purchase to fraud costs only a card reissue.
   - *NOT A DISPUTE column, all customer harm:* telling a customer with a real billing error that it isn't one strips a legal protection. It's the worst common mistake.
+  - The idea of pricing each error by who gets hurt comes from Steve Yegge's essay "The Counting House" (https://yegge.ai/essays/the-counting-house/). The grid applies it to Reg Z card disputes.
 - **Grounding check.** Every fact in the note and payload must appear in the transcript. A single invented fact fails the note outright, whatever else it gets right.
 - **Note scoring.** Notes are hand-scored by the author (12). An LLM judge was planned and not built.
 

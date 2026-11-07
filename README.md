@@ -8,6 +8,7 @@ It reads a card billing-dispute call transcript and classifies the intent (not r
 
 ## Eval design
 
+- **Models.** Classifier and note generator: `anthropic/claude-haiku-5.5`. Transcript generator: `google/gemini-3.8-flash`. Both through OpenRouter.
 - **40 labeled transcripts.** Split 28 tune / 12 holdout, stratified 2 per class in the holdout, and locked in [`data/split.csv`](data/split.csv) before the prompts were first committed. Labeling rules and honest limits are in [`data/labeling_notes.md`](data/labeling_notes.md). The full spec is in [`spec/intake_spec.md`](spec/intake_spec.md).
 - **Order of events** (from the private working repo this was published from, 2026-10-28, -0500):
   - split locked: commit a5cbc78, 16:20:46

@@ -6,6 +6,8 @@
 
 It reads a card billing-dispute call transcript and classifies the intent (not received, wrong amount, unauthorized, credit not posted, not a dispute, or escalate). It then retrieves the relevant policy snippets and drafts an after-call note and a structured payload of proposed next steps. **The model proposes and never acts.** A human approves or overrides every proposal in the review screen.
 
+Two-minute walkthrough: https://www.loom.com/share/930fb9049c5d42b48cefb96bc4033aa6
+
 ## Eval design
 
 - **Models.** Classifier and note generator: `anthropic/claude-haiku-5.5`. Transcript generator: `google/gemini-3.8-flash`. Both through OpenRouter.

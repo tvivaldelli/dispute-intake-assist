@@ -59,10 +59,11 @@ It reads a card billing-dispute call transcript and classifies the intent (not r
 - **Rules pick the next action and policy basis**, keyed on intent and those facts, not on keyword retrieval. Next action was already 12 of 12. The gain is in the basis (policy-id recall 2 of 12) and in checks the pipeline skips today, like deriving `within_60_days` from dates and validating `temp_credit_eligible`. Judgment calls such as quality complaint vs. not (T31) move into fact extraction; they don't go away.
 - **Retrieval only supplies supporting text for the note**, and the note cites only the ids the rules chose.
 - **Write action definitions as proposals** ("propose opening a billing-error dispute"), so notes and payloads say what's proposed, not what's done.
+- **A harder set.** 40 cases at the ceiling can't exercise the cost grid. It priced $0 of errors because nothing was wrong, not because the grid works. The next set needs adversarial cases on the UN and NAD boundaries, and enough of them that a miss shows up.
 
 ## Errata
 
-These corpus issues were found in a post-run review against the eCFR text (as of 2026-11-05). **The corpus is published as it ran. The corrections below haven't been evaluated.** Sources: [§ 1026.13](https://www.ecfr.gov/current/title-12/part-1026/section-1026.13) and [Supplement I to Part 1026](https://www.ecfr.gov/current/title-12/part-1026/appendix-Supplement%20I%20to%20Part%201026) (official commentary).
+All 14 REG snippets were checked against the eCFR text (as of 2026-11-05). The four below needed correction; the other ten matched. The corpus is published as it ran, and the corrections haven't been evaluated. Sources: [§ 1026.13](https://www.ecfr.gov/current/title-12/part-1026/section-1026.13) and [Supplement I to Part 1026](https://www.ecfr.gov/current/title-12/part-1026/appendix-Supplement%20I%20to%20Part%201026) (official commentary).
 
 - **REG-01 vs REG-11 (contradiction).** REG-01 lists "a request for clarification or documentation" as a billing error, and REG-11 says a bare receipt request is not one. Under § 1026.13(a)(6), documentation counts only as part of a clarification request, and comment 13(a)(6)-1 excludes documentation requests made on their own. In the committed runs REG-11 was never retrieved, and T32 (a receipt request) cited REG-01.
 - **REG-09 (overstated).** It says the cardholder never has to contact the merchant first. Comment 13(a)(3)-3 says that only for not-delivered or not-accepted claims under § 1026.13(a)(3).

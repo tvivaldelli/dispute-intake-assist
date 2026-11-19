@@ -29,6 +29,18 @@ flowchart LR
 
 All model calls go through OpenRouter. Nothing in the pipeline takes an action. The review screen is where a proposal becomes a decision.
 
+## Key decisions
+
+- **The model proposes, a human decides.** Every next step is a proposal in the review screen. The expensive mistakes, missed fraud and credit on a valid charge, are the ones a human should catch before they happen.
+- **Errors were priced before tuning.** The cost grid went into the spec before any prompt. The targets are the expensive cells: recall on unauthorized charges, and recall on "is this a dispute at all." The spec deprioritizes mixups among dispute types because they're cheap.
+- **The split was locked first, and the holdout ran once.** Prompts were frozen before the holdout ran, and nothing changed after. A rerun is a new experiment. Timestamps are in Eval design.
+- **Unknowns stay unknown.** Any payload field the transcript doesn't support is marked `unknown`, never inferred. One invented fact fails a note.
+- **Code wins where it has the answer.** Intent and escalate reason always match the classifier, and the payload can't cite a policy id that retrieval didn't return. Everything else that's checked, like a next action that doesn't fit the intent or a 60-day flag that disagrees with the dates, gets flagged for the reviewer, not fixed. If the classifier's output can't be used at all, the case fails and never reaches the reviewer.
+- **Keyword retrieval, not embeddings.** Simplest retrieval first. The eval showed it's the weak spot.
+- **One small model.** Claude Haiku 5.5 both classifies and writes notes. Start with the cheapest model and move up only if the eval says so. At $0.0018 a case, cost isn't the constraint. Retrieval is.
+- **Synthetic data only.** No real calls or customer data. A different model family generated the transcripts than the one that classifies them.
+- **One intent per call.** Calls with two issues escalate, or the agent picks the primary issue and flags the second. This keeps labels clean at 40 cases.
+
 ## Eval design
 
 - **Models.** Classifier and note generator: `anthropic/claude-haiku-5.5`. Transcript generator: `google/gemini-3.8-flash`. Both through OpenRouter.

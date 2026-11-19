@@ -2,6 +2,14 @@
 
 **Synthetic data. Prototype, not production.** The transcripts are generated, and the issuer policy snippets (POL-\*) are invented for this project. The regulation snippets (REG-\*) paraphrase public Reg Z, 12 CFR 1026.12 and 1026.13. See [Errata](#errata).
 
+## The problem
+
+When a cardholder calls about a charge, the intake agent has to decide what kind of problem it is. That decision sets what happens next: a billing-error dispute under Reg Z, a fraud claim and a card block, or no dispute at all.
+
+The mistakes don't cost the same. Missing fraud lets more charges land. Telling a customer with a real billing error that it isn't one strips a legal protection. Opening a dispute on a valid charge can trigger temporary credit the issuer shouldn't give. Mixing up two dispute types is mostly rework.
+
+This prototype tests whether a model can do first-pass intake and propose the next step with its policy basis, leaving the decision to a human. The eval is built around those unequal costs.
+
 ## What it does
 
 It reads a card billing-dispute call transcript and classifies the intent (not received, wrong amount, unauthorized, credit not posted, not a dispute, or escalate). It then retrieves the relevant policy snippets and drafts an after-call note and a structured payload of proposed next steps. **The model proposes and never acts.** A human approves or overrides every proposal in the review screen.

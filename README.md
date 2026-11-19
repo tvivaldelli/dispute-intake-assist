@@ -16,6 +16,19 @@ It reads a card billing-dispute call transcript and classifies the intent (not r
 
 Three-minute walkthrough: https://www.loom.com/share/930fb9049c5d42b48cefb96bc4033aa6
 
+## How it works
+
+```mermaid
+flowchart LR
+  T["Call transcript"] --> C["Classify intent<br/>(Claude Haiku 5.5)"]
+  C --> R["Retrieve policy snippets<br/>(keyword match)"]
+  R --> N["Draft note + payload"]
+  N --> H["Review screen<br/>human approves or overrides"]
+  N --> S["Scorer<br/>cost grid + note rubric"]
+```
+
+All model calls go through OpenRouter. Nothing in the pipeline takes an action. The review screen is where a proposal becomes a decision.
+
 ## Eval design
 
 - **Models.** Classifier and note generator: `anthropic/claude-haiku-5.5`. Transcript generator: `google/gemini-3.8-flash`. Both through OpenRouter.
